@@ -1,6 +1,6 @@
 # Qwen3.5 local baseline
 
-This [supplement](PROTOCOL.md) tests a general-purpose local model on the same 72 authored repository cases as the main study. It was added after the original results were inspected, so it is not a new blind benchmark. The candidate commands were passed as text; none were executed.
+This [Qwen study arm](PROTOCOL.md) tests a general-purpose local model on the same 72 authored repository cases as the other local models. It was added after the earlier results were inspected, so it is not a new blind benchmark. The candidate commands were passed as text; none were executed.
 
 ## Setup
 
