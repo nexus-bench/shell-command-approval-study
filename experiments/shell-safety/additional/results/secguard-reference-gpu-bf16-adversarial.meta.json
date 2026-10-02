@@ -1,0 +1,12 @@
+{
+  "model": "secguard",
+  "tag": "reference-gpu-bf16",
+  "dataset": "adversarial",
+  "dataset_sha256": "df4c6298b4082a7c1fd65b55961d1693b8598c5d70779895a3f7158035c72ceb",
+  "runner_sha256": "0b4f50536b814723c3a6de72ecd3cbb1e7cbd497afab87673e66476749924fc2",
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 0.001459033228456974,
+  "time_utc": "2026-10-02T07:11:48Z",
+  "count": 12
+}

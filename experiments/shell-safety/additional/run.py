@@ -111,7 +111,10 @@ def datasets():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('model', choices=['kestrel','modernbert','secguard'])
+    ap.add_argument('--tag', default='', help='append a run tag to result filenames without overwriting the original run')
     args = ap.parse_args()
+    if args.tag and not re.fullmatch(r'[a-z0-9][a-z0-9-]*', args.tag):
+        ap.error('--tag must contain only lowercase letters, digits, and hyphens')
     start = time.perf_counter()
     model = {'kestrel':Kestrel, 'modernbert':ModernBERT, 'secguard':Secguard}[args.model]()
     load_ms = (time.perf_counter()-start)*1000
@@ -127,12 +130,13 @@ def main():
     out = HERE/'results'
     out.mkdir(exist_ok=True)
     for name, path in datasets().items():
-        output = out/f'{args.model}-{name}.jsonl'
+        stem = f'{args.model}-{args.tag}-{name}' if args.tag else f'{args.model}-{name}'
+        output = out/f'{stem}.jsonl'
         if output.exists():
             raise RuntimeError(f'Refusing overwrite: {output}')
         payload = path.read_bytes()
         rows = [json.loads(x) for x in payload.splitlines()]
-        meta = dict(model=args.model, dataset=name, dataset_sha256=sha(payload), runner_sha256=sha(Path(__file__).read_bytes()),
+        meta = dict(model=args.model, tag=args.tag or None, dataset=name, dataset_sha256=sha(payload), runner_sha256=sha(Path(__file__).read_bytes()),
                     python=platform.python_version(), platform=platform.platform(), load_ms=load_ms,
                     time_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), count=len(rows))
         output.with_suffix('.meta.json').write_text(json.dumps(meta,indent=2)+'\n')

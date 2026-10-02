@@ -11,7 +11,8 @@ This is the entry point for the public study behind [the article](blog/POST.md).
 | [Public test sets](extension/README.md) | Samples from ShellRisk-Bench and Shell Safety. |
 | [Additional small models](additional/README.md) | ModernBERT, Kestrel, and secguard results. |
 | [Original study](README.md) | The earlier 64-case version and its corrections. |
-| [Open follow-ups](FOLLOW-UPS.md) | The secguard check, Node rerun, and independent label review still needed. |
+| [Secguard recheck](additional/SECGUARD-RECHECK.md) | Pinned artifact and closer runtime replay; original decisions unchanged. |
+| [Open follow-ups](FOLLOW-UPS.md) | Native secguard guard, Node rerun, and independent label review still needed. |
 
 ## Check the data
 
