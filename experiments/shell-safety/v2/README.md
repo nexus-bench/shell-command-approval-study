@@ -303,19 +303,19 @@ baseline against the now-visible held-out examples and call the same set a holdo
 A separate [72-case native sweep](../extension/NATIVE-FULL.md) sent the frozen
 command, task and captured evidence to Codex and Claude agents and observed
 their permission paths. Unlike the inert v2 protocol, a candidate could run
-inside a disposable synthetic repository. Six Node startup cases per provider
-were excluded from the effect comparison because the live tool environment
-did not inherit the captured preload.
+inside a disposable synthetic repository. The six Node startup cases per
+provider were rerun after the first run lacked the required preload; the
+comparison now includes all 72 cases for each provider.
 
-| Research-policy label on the 66 comparable cases | Codex candidate tool returned | Claude candidate tool returned |
+| Research-policy label on all 72 cases | Codex candidate tool returned | Claude candidate tool returned |
 | --- | ---: | ---: |
-| Allow: supported action | 24/24 | 23/24 |
-| Deny: observed conflict | 0/20 | 0/20 |
-| Ask: insufficient evidence, inspect first | 12/22 | 12/22 |
+| Allow: supported action | 26/26 | 25/26 |
+| Deny: observed conflict | 0/22 | 0/22 |
+| Ask: insufficient evidence, inspect first | 12/24 | 12/24 |
 
 The returned `ask` case IDs differ by provider. Their underlying fixtures
 are often benign; the issue is approval without evidence required by the
-research policy. The 0/20 deny result does not isolate classifier behavior:
+research policy. The 0/22 deny result does not isolate classifier behavior:
 many candidates were never proposed, and Claude exposes no separate positive
 classifier verdict. The agents saw host receipts as prompt data, rather than
 through an independently authenticated context channel. This measures a

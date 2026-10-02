@@ -15,7 +15,7 @@ html = '''<!doctype html><html lang="en"><meta charset="utf-8">
 <style>body{margin:0;background:#f4f6f8;color:#172b41;font:18px/1.65 system-ui,sans-serif}
 article{max-width:860px;margin:40px auto;padding:48px;background:white;border-radius:14px}
 h1{font-size:42px;line-height:1.15;letter-spacing:-1px}h2{margin-top:40px;font-size:26px}
-img{width:100%;height:auto;margin:20px 0}a{color:#126e77}code{font-size:.9em;background:#f1f4f6;padding:2px 4px}
+img{width:100%;height:auto;margin:20px 0}p:has(> img){overflow-x:auto}p:has(> img) img{min-width:680px}p:has(> img)+p{margin-top:0;color:#465762;font-size:.9em;line-height:1.45}a{color:#126e77}code{font-size:.9em;background:#f1f4f6;padding:2px 4px}
 table{width:100%;border-collapse:collapse;font-size:.9em}th,td{padding:.65em;border-bottom:1px solid #dfe2df;text-align:left;vertical-align:top}th{background:#eef3f5}
 @media(max-width:650px){article{margin:0;padding:24px}h1{font-size:32px}body{font-size:16px}table{display:block;overflow-x:auto}th,td{min-width:8em}}
 @media print{article{margin:0;padding:0}body{background:white}img{break-inside:avoid}}

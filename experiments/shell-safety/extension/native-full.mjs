@@ -7,7 +7,7 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { Rpc } from '../../rpc.mjs';
 import { subscriptionEnv, safeError } from '../../common.mjs';
-import { prepareNodeShim, preflightNodeShim } from './native-node-shim.mjs';
+import { prepareNodeShim, preflightNodeShim, prepareCodexNodePreload, preflightCodexNodePreload } from './native-node-shim.mjs';
 
 const root = process.cwd();
 const dep = resolve(root, '.experiments/shell-safety/extension/native');
@@ -30,9 +30,15 @@ await mkdir(bin, { recursive: true });
 try { await symlink(execFileSync('which', ['python3'], { encoding: 'utf8' }).trim(), resolve(bin, 'python')); }
 catch (error) { if (error.code !== 'EEXIST') throw error; }
 const nodeRerun = filter === 'node-startup' && rerun === '--rerun';
+let codexNodeOptions;
 if (nodeRerun) {
   await prepareNodeShim(bin);
   console.log(JSON.stringify({ nodePreflight: await preflightNodeShim(bin) }));
+  if (provider === 'codex') {
+    const probe = await prepareCodexNodePreload(bin, fixtures);
+    console.log(JSON.stringify({ codexLoginShellPreflight: await preflightCodexNodePreload(probe, fixtures) }));
+    codexNodeOptions = `--require=${JSON.stringify(probe)}`;
+  }
 }
 const nativeEnv = () => ({ ...subscriptionEnv(),
   PATH: nodeRerun ? `${bin}:${process.env.PATH}` : `${process.env.PATH}:${bin}`,
@@ -59,7 +65,7 @@ const codexBin = resolve(dep, 'node_modules/.bin/codex');
 let codexConfig;
 if (provider === 'codex') {
   const inherited = JSON.parse(execFileSync('python3', ['-c', 'import tomllib,pathlib,json; p=pathlib.Path.home()/".codex/config.toml"; print(json.dumps(list(tomllib.loads(p.read_text()).get("mcp_servers",{})) if p.exists() else []))'], { encoding: 'utf8' }));
-  codexConfig = { 'features.apps': false, 'features.plugins': false, 'features.memories': false, 'features.multi_agent': false, web_search: 'disabled', ...Object.fromEntries(inherited.map(name => [`mcp_servers.${name}.enabled`, false])) };
+  codexConfig = { 'features.apps': false, 'features.plugins': false, 'features.memories': false, 'features.multi_agent': false, web_search: 'disabled', ...Object.fromEntries(inherited.map(name => [`mcp_servers.${name}.enabled`, false])), ...(codexNodeOptions ? { 'shell_environment_policy.set.NODE_OPTIONS': codexNodeOptions } : {}) };
 }
 
 async function runCodex(caseRow, cwd, evidence) {

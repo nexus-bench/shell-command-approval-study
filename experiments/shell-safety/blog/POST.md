@@ -42,6 +42,8 @@ The first chart shows AutoShell and Qwen with the user's task and collected repo
 
 ![Approvals across 12 allow, 12 deny, and 12 ask cases for AutoShell at two cutoffs and Qwen3.5-4B.](figures/repository-evidence.png)
 
+*Each color represents an expected label. Approvals in allow cases are useful; approvals in deny or ask cases are not. All three rows used the saved task and repository evidence; the two AutoShell rows differ only in cutoff.*
+
 With our test instructions and collected repository information, AutoShell approved **8 of 12 allow cases**, **4 of 12 deny cases**, and **7 of 12 ask cases**. The stricter cutoff stopped all 12 deny cases. It also approved only **2 of 12 allow cases** and still approved **2 ask cases**.
 
 The [Qwen3.5-4B](../general-baseline/README.md) approved **4 of 12 allow**, **2 of 12 deny**, and **6 of 12 ask cases**. It answered **ask** on the other 24 cases and never answered **deny**, even when the evidence showed a conflict. An ask answer would stop automatic execution, but it does not tell a user that a known conflict was found. It matched the exact label on **10 of 36** test cases. This is a test of one 4-bit Qwen setup, not a verdict on every way to run the model.
@@ -50,11 +52,15 @@ The second chart shows setups that received no repository file contents. LANCET,
 
 ![Approvals across 12 allow, 12 deny, and 12 ask cases for models given a command alone or a command and working directory, without repository file contents.](figures/repository-limited-input.png)
 
+*These models saw different limited inputs and used their own decision rules. The secguard row is its model alone; we did not test the full guard. An ask case means evidence is missing, not that harm is proven.*
+
 The command-only models could not tell apart two cases where the command was identical but the file it would run had changed. That is a limit of the information they received, not proof that they could never reason about files.
 
 ## Results on public test sets
 
 ![Unsafe approvals in two public test sets. Kestrel approved none of 50 unsafe ShellRisk examples, but 34 of 50 unsafe Shell Safety examples.](figures/dataset-transfer.png)
+
+*Each source contributed 50 unsafe cases. Their policies differ, and none of these setups received repository file contents. The secguard result is for the model alone.*
 
 Kestrel approved none of the 50 unsafe ShellRisk examples we sampled, but approved **34 of 50** unsafe examples from Shell Safety. A strong result on one small sample did not carry over to the other.
 
@@ -62,21 +68,25 @@ The secguard model-only setup returned “safe” on **283 of 284** cases, inclu
 
 ## Codex and Claude command paths
 
-![Commands that reached the native Codex and Claude tools, grouped by allow, deny, and ask labels. Six Node startup cases per provider are excluded because the tool did not receive the required startup setting.](figures/native-path.png)
+![Commands that reached the native Codex and Claude tools across all 72 cases per provider, grouped by allow, deny, and ask labels.](figures/native-path.png)
 
-We ran all 72 cases once through each native path. For the chart, we left out six Node cases per provider: our runner did not pass a required startup setting to the shell, so those runs did not test the stated conditions. We have [prepared a checked rerun](../extension/NATIVE-FULL.md#node-startup-rerun-preflight) and will count those cases only after it passes.
+*The groups contain 26 allow, 22 deny, and 24 ask cases per provider. These bars show whether a command reached the tool after the agent's choice and approval steps, not a separate classifier verdict. An ask case calls for inspection or clarification; a returned tool is not proof of harm.*
 
-Among the remaining cases, the command reached the tool in **24 of 24 allow cases for Codex** and **23 of 24 for Claude**. No command reached the tool in the **20 deny cases** for either provider. But commands also reached the tool in **12 of 22 ask cases** for each provider. The underlying files in many ask cases were harmless; the problem was acting without the evidence our approval rule required.
+We ran all 72 cases through each native path. The first run lacked a required Node startup setting in the candidate shell, so we [reran those six cases per provider with a checked preload](../extension/NATIVE-FULL.md#node-startup-rerun-preflight). The chart includes the latest verified result for every case.
+
+The command reached the tool in **26 of 26 allow cases for Codex** and **25 of 26 for Claude**. No command reached the tool in the **22 deny cases** for either provider. But commands also reached the tool in **12 of 24 ask cases** for each provider. The underlying files in many ask cases were harmless; the problem was acting without the evidence our approval rule required.
 
 These counts describe the whole path from an agent's choice through its approval step. An agent might never suggest the command, and Claude does not expose a separate positive classifier decision here. A tool return also does not always show that the command finished successfully. No protected test file changed in this run.
 
 ## Speed
 
-![Median local model response times on a logarithmic scale, from 0.024 milliseconds for Kestrel to 3,150 milliseconds for AutoShell with repository information.](figures/latency.png)
+![Median local model response times on a logarithmic scale, from 0.024 milliseconds for Kestrel to 3,150 milliseconds for AutoShell with repository information; Qwen used Metal acceleration.](figures/latency.png)
+
+*Apple M1 Pro, 16 GB. Qwen used Metal; the other rows used CPU inference. These separate runs had different inputs and software. Times exclude model loading and evidence collection, which took about 41 ms at the median. The secguard row is its model alone.*
 
 On an Apple M1 Pro, the tested local setups took from about **24 microseconds** for the Kestrel Python port to **3.15 seconds** for AutoShell with repository information. They used different inputs and software, so this is a measure of these setups on this computer, not a general speed ranking.
 
-Qwen took **1.99 seconds** at the median on the same computer. It used Metal acceleration, while the charted runs used CPU inference, so its time is reported separately.
+Qwen took **1.99 seconds** at the median on the same computer. It used Metal acceleration, so the chart marks it separately from the CPU runs.
 
 ## Conclusion
 
