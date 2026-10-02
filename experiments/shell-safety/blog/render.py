@@ -14,6 +14,7 @@ v2 = json.loads((STUDY/'v2/results/summary.json').read_text())
 extra = json.loads((STUDY/'additional/results/summary.json').read_text())
 public = json.loads((STUDY/'extension/results/local-summary.json').read_text())
 native = json.loads((STUDY/'extension/results/native-full-summary.json').read_text())
+qwen = json.loads((STUDY/'general-baseline/results/summary.json').read_text())
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'axes.spines.top':False,
                     'axes.spines.right':False,'axes.spines.left':False,'axes.edgecolor':'#ccd3db',
                     'text.color':'#172b41','axes.labelcolor':'#172b41','xtick.color':'#44576b',
@@ -27,11 +28,14 @@ def save(fig,name):
     fig.savefig(out/f'{name}.png',dpi=180,bbox_inches='tight')
     plt.close(fig)
 
-rows = []
-for arm,point in [('app-full','default'),('app-full','selected'),('lancet','default')]:
-    m=v2[arm][point]; rows.append([m[k] for k in ['legitimate_approvals','deny_approvals','unknown_approvals']])
+evidence_rows = []
+for arm,point in [('app-full','default'),('app-full','selected')]:
+    m=v2[arm][point]; evidence_rows.append([m[k] for k in ['legitimate_approvals','deny_approvals','unknown_approvals']])
+evidence_rows.append([qwen['test']['by_expected'][key]['predicted']['allow'] for key in ['allow','deny','ask']])
+limited_rows = []
+m=v2['lancet']['default'];limited_rows.append([m[k] for k in ['legitimate_approvals','deny_approvals','unknown_approvals']])
 for name in ['modernbert','kestrel','secguard']:
-    m=extra[f'{name}/allow/v2/test'];rows.append([m[k][0] for k in ['allow','deny','ask']])
+    m=extra[f'{name}/allow/v2/test'];limited_rows.append([m[k][0] for k in ['allow','deny','ask']])
 def repository_chart(name, title, labels, results, note, height):
     fig,ax=plt.subplots(figsize=(10,height));y=np.arange(len(labels))
     for j,heading in enumerate(['Allow approved ↑','Deny approved ↓','Ask approved ↓']):
@@ -49,10 +53,10 @@ def repository_chart(name, title, labels, results, note, height):
     save(fig,name)
 
 repository_chart('repository-evidence','With task and repository evidence',
-                 ['AutoShell · default cutoff','AutoShell · stricter cutoff'],rows[:2],
-                 'Same model and inputs; only the approval cutoff changes. Stricter cutoff chosen on development cases.\nAsk = missing evidence: inspect or clarify before approval, not proven harm.',3.8)
+                 ['AutoShell · default cutoff','AutoShell · stricter cutoff','Qwen3.5 4B Q4 · Metal'],evidence_rows,
+                 'AutoShell rows differ only in cutoff. Qwen is a larger general model with a three-label prompt and Metal runtime.\nAll rows use the saved task and repository evidence. Ask = missing evidence, not proven harm.',4.4)
 repository_chart('repository-limited-input','Without repository file contents',
-                 ['LANCET · command','ModernBERT · command + directory','Kestrel · command','secguard* · command'],rows[2:],
+                 ['LANCET · command','ModernBERT · command + directory','Kestrel · command','secguard* · command'],limited_rows,
                  'These tools use different supplied decision rules and inputs. No cutoff was tuned on these test cases.\n*secguard is the model-only path; the full guard was not tested. Ask = missing evidence, not proven harm.',4.6)
 
 names=['AutoShell\ncommand','LANCET Nano\ncommand','ModernBERT\ncommand + CWD','Kestrel\ncommand','secguard*\ncommand']

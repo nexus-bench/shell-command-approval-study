@@ -1,0 +1,20 @@
+{
+  "split": "dev",
+  "data_sha256": "c5ca9cefd3bca9fbaaea67d56c2aed4f50ce7c9604ff2811098afd95db2fdf7d",
+  "policy_sha256": "f102c8de4390de3673249d7a97ec599166b11cda5a228c667e7f819d8a55d6b8",
+  "runner_sha256": "345d06cf5d810607618a01a3af50c947d8362913e4f1e941e7ddbf1834056c94",
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "server_url": "http://127.0.0.1:18766/v1/chat/completions",
+  "request_settings": {
+    "model": "qwen35-4b-q4",
+    "max_tokens": 8,
+    "temperature": 0,
+    "seed": 20260930,
+    "grammar": "root ::= \"allow\" | \"deny\" | \"ask\"",
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "cache_prompt": false
+  }
+}
