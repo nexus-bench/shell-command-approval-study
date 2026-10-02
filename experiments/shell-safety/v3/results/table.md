@@ -13,6 +13,10 @@ Counts describe these fixtures and policies, not real-world failure rates.
 | qwen-code-v3 | evidence-v3/test | 24 | 6 | 6 | 8 | 0 | 2 | 6084 |
 | qwen-code-v3 | legacy-v2/dev | 36 | 14 | 10 | 12 | 0 | 0 | 6057 |
 | qwen-code-v3 | legacy-v2/test | 36 | 12 | 12 | 12 | 0 | 0 | 6036 |
+| qwen-coder-plus-v3 | evidence-v3/dev | 24 | 4 | 5 | 6 | 0 | 9 | 1188 |
+| qwen-coder-plus-v3 | evidence-v3/test | 24 | 6 | 6 | 8 | 0 | 4 | 984 |
+| qwen-coder-plus-v3 | legacy-v2/dev | 36 | 14 | 10 | 12 | 0 | 0 | 1004 |
+| qwen-coder-plus-v3 | legacy-v2/test | 36 | 12 | 12 | 12 | 0 | 0 | 1032 |
 | secguard-full-adversarial-recorded† | adversarial/diagnostic | 12 | 6 | 4 | 2 | 0 | 0 | 174 |
 | secguard-full-public-recorded† | shellrisk/reference | 100 | 47 | 49 | 0 | 0 | 0 | 176 |
 | secguard-full-public-recorded† | shellsafety/reference | 100 | 46 | 42 | 0 | 0 | 0 | 173 |

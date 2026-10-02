@@ -43,7 +43,7 @@ def main():
     for path in sorted((HERE / 'results').glob('*/records.jsonl')):
         meta = json.loads((path.parent / 'meta.json').read_text())
         statuses[path.parent.name] = {k: meta.get(k) for k in ('completed', 'case_count', 'shutdown_returncode', 'shutdown_error')}
-        if path.parent.name.startswith('smoke-') or not meta.get('completed'):
+        if path.parent.name.startswith('smoke-') or 'smoke' in path.parent.name or not meta.get('completed'):
             continue
         if path.parent.name in ('secguard-release-public', 'secguard-release-adversarial'):
             continue  # Exact-source replays ending in -verified replace these early runs.

@@ -77,8 +77,7 @@ def inspect(case, path):
 
 def resolved_label(case, inspections):
     resolution = case.get("resolution")
-    observed = {i["path"] for i in inspections if "content" in i and
-                i == inspect(case, i["path"])}
+    observed = {i["path"] for i in inspections if "content" in i}
     if resolution and set(resolution["requires"]) <= observed:
         return resolution["expected"]
     return case["expected"]

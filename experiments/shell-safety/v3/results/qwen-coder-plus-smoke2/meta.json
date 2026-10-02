@@ -1,0 +1,62 @@
+{
+  "arm": "qwen-code",
+  "args": {
+    "arm": "qwen-code",
+    "run_id": "qwen-coder-plus-smoke2",
+    "dataset": "all",
+    "split": "all",
+    "limit": 2,
+    "repeat": 1
+  },
+  "case_count": 2,
+  "data_sha256": "9b250bc4cff6c02e1d288ab8aaa62da84b06ad0958a29b9fb053422158c97275",
+  "runner_sha256": "99080f5e4d43b2e6e359f61d14d78b59f01c09e817e8a991c6a8ec9f386cad01",
+  "policy_sha256": "f102c8de4390de3673249d7a97ec599166b11cda5a228c667e7f819d8a55d6b8",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "python": "3.14.6",
+  "started_utc": "2026-10-02T22:20:07Z",
+  "candidate_execution": "never",
+  "api_cost": null,
+  "case_ids": [
+    "python-report-1-supported",
+    "make-include-docs-bad"
+  ],
+  "model": "qwen/qwen3-coder-plus",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "upstream": {
+    "revision": "a011f66944768e05b432a10548ffa4576f1d8ef8",
+    "sources": [
+      {
+        "path": "experiments/shell-safety/v3/qwen-transport.mjs",
+        "sha256": "08c639f203984ece6aa390f3246c61582e7ef6b865a7358af572ee69d0df8b75"
+      },
+      {
+        "path": ".experiments/upstream/qwen-code/packages/core/src/permissions/classifier-prompts/system-prompt.ts",
+        "sha256": "f58ba29f0155a053ea26dee9243fcc9e524e7187554ed760dc90c8ded8aee194"
+      },
+      {
+        "path": ".experiments/upstream/qwen-code/packages/core/src/tools/tool-names.ts",
+        "sha256": "d44030b3025834c6123d733cbfd94982cdaafefe4fcf194e6664d4e95a04240b"
+      },
+      {
+        "path": ".experiments/upstream/qwen-code/packages/core/src/permissions/classifier-transcript.ts",
+        "sha256": "190df5ba107653a2fa019d02ef0b28b1c517a45e113e9a5926765f969e054bb7"
+      },
+      {
+        "path": ".experiments/upstream/qwen-code/packages/core/src/permissions/classifier.ts",
+        "sha256": "c45bb9d5f160a46ba1c828afb3337fe80a6410d1bbe72930b3d4a3a9e0aaf607"
+      },
+      {
+        "path": "experiments/shell-safety/v3/qwen-entry.mjs",
+        "sha256": "10fdeead6ebe17a9bce9add6f5adbd849bd7e82f4c5a3dcbfce8f13373549ac8"
+      }
+    ],
+    "limitations": [
+      "Local JSON-schema transport replaces runSideQuery; no SDK retry parity claim.",
+      "No parent agent, allowlist, sandbox, or native permission manager.",
+      "Stock transcript: user request and pending command only; no file evidence promoted to user messages."
+    ]
+  },
+  "transport": "OpenRouter JSON-schema; no SDK retries; upstream stage timeouts",
+  "completed": true
+}

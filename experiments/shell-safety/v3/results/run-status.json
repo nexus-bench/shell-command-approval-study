@@ -23,6 +23,18 @@
     "shutdown_returncode": null,
     "shutdown_error": null
   },
+  "qwen-coder-plus-smoke2": {
+    "completed": true,
+    "case_count": 2,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "qwen-coder-plus-v3": {
+    "completed": true,
+    "case_count": 120,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
   "secguard-full-adversarial-recorded": {
     "completed": true,
     "case_count": 12,

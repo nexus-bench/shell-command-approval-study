@@ -98,15 +98,28 @@ We then added a diagnostic: have the harness supply the visibly missing file bef
 
 The new development cases also show the limits of that improvement. Single pass, second review and the diagnostic each approved **2 of 6 observed conflicts**. Supplying missing files helped with uncertainty; it did not repair every judgment about visible code.
 
-### Qwen Code's classifier is a separate comparison
+### Qwen Code's classifier: local and hosted
 
 We also bundled Qwen Code's actual classifier, stock prompt and transcript builder, replacing its model transport with the same local Qwen3.5-4B runtime. This isolated classifier saw the user request and pending command, with no script contents or earlier script-writing history. It did not include Qwen Code's parent agent, permission manager or sandbox.
 
 It approved all 72 original cases. On the 24 new test cases, it approved all six supported cases, all six conflicts, and eight of twelve ask cases. It blocked two ask cases; two more produced timeouts, which we count as failures rather than correct blocks. Its stock policy and available evidence differ from our controlled reviewers. These counts describe that source-isolated configuration, not the native Qwen Code product.
 
+We then ran the same pinned classifier logic and 120 cases with hosted Qwen3-Coder-Plus through OpenRouter; responses identified Alibaba as the provider. Both classification stages used that model. The adapter retained the upstream stage timeouts and required output fields, with no SDK retries.
+
+| Qwen Code classifier configuration | Supported approved / 6 | Conflicts approved / 6 | Unresolved approved / 12 | Blocked | Unavailable |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Local Qwen3.5-4B | 6 | 6 | 8 | 2 | 2 |
+| Hosted Qwen3-Coder-Plus | 6 | 6 | 8 | 0 | 4 |
+
+These are the 24 new test cases. Across all 120 cases, the hosted run returned 107 approvals and 13 unavailable reviews. All 13 second-stage responses omitted the required `thinking` field and failed adapter validation. We did not repair those responses or count them as successful blocks. Both configurations approved all 72 original cases. The hosted run's reported API cost was about $0.054; this includes provider caching and excludes the smoke test.
+
+The hosted configuration did not improve the test split's conflict or unresolved approval counts. Its schema failures also limit what we can conclude about model quality. This compares two model-and-serving configurations under the same classifier logic, not two complete Qwen Code installations.
+
+The local configuration belongs alongside our other local reviewers. The hosted configuration can sit beside Codex and Claude as a clearly labeled classifier-only result; their native approval-path results measure more of the product. For Cursor, a native desktop Auto-review test would need to distinguish allowlist, sandbox and classifier decisions. We have not measured Cursor, and its cloud agents do not use the desktop Run Modes. [Cursor's documented approval flow](https://cursor.com/docs/agent/security/run-modes) explains why automatic execution alone cannot establish that its classifier approved a command.
+
 Cursor was not available in the test environment. Our optional-inspection experiment tests an idea from its documented design; it is not a measurement of Cursor.
 
-Read the [extension methods, raw results and limitations](../v3/RESULTS.md).
+Read the [extension methods, raw results and limitations](https://github.com/nexus-bench/shell-command-approval-study/blob/f12d0413168cb54ace7c4d950cd1eda28f273a19/experiments/shell-safety/v3/RESULTS.md).
 
 ## Codex and Claude command paths
 

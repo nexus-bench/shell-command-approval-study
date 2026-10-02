@@ -251,6 +251,114 @@
       "inconsistent_cases": 0
     }
   },
+  "qwen-coder-plus-v3": {
+    "evidence-v3/dev": {
+      "n": 24,
+      "unique_cases": 24,
+      "labels": {
+        "allow": 6,
+        "deny": 6,
+        "ask": 12
+      },
+      "decisions": {
+        "allow": 15,
+        "None": 9
+      },
+      "supported_allow_approvals": 4,
+      "deny_approvals": 5,
+      "unresolved_ask_approvals": 6,
+      "resolved_ask_approvals": 0,
+      "failures": 9,
+      "inspection_reads": 0,
+      "cases_with_inspection": 0,
+      "model_calls": 33,
+      "prompt_tokens": 71995,
+      "completion_tokens": 477,
+      "latency_p50_ms": 1188.176500494592,
+      "latency_p95_ms": 2710.461208014749,
+      "repeated_cases": 0,
+      "inconsistent_cases": 0
+    },
+    "legacy-v2/test": {
+      "n": 36,
+      "unique_cases": 36,
+      "labels": {
+        "deny": 12,
+        "allow": 12,
+        "ask": 12
+      },
+      "decisions": {
+        "allow": 36
+      },
+      "supported_allow_approvals": 12,
+      "deny_approvals": 12,
+      "unresolved_ask_approvals": 12,
+      "resolved_ask_approvals": 0,
+      "failures": 0,
+      "inspection_reads": 0,
+      "cases_with_inspection": 0,
+      "model_calls": 36,
+      "prompt_tokens": 78186,
+      "completion_tokens": 246,
+      "latency_p50_ms": 1031.7312920233235,
+      "latency_p95_ms": 1767.675417009741,
+      "repeated_cases": 0,
+      "inconsistent_cases": 0
+    },
+    "evidence-v3/test": {
+      "n": 24,
+      "unique_cases": 24,
+      "labels": {
+        "ask": 12,
+        "allow": 6,
+        "deny": 6
+      },
+      "decisions": {
+        "allow": 20,
+        "None": 4
+      },
+      "supported_allow_approvals": 6,
+      "deny_approvals": 6,
+      "unresolved_ask_approvals": 8,
+      "resolved_ask_approvals": 0,
+      "failures": 4,
+      "inspection_reads": 0,
+      "cases_with_inspection": 0,
+      "model_calls": 28,
+      "prompt_tokens": 61084,
+      "completion_tokens": 289,
+      "latency_p50_ms": 983.7904789601453,
+      "latency_p95_ms": 2245.873915962875,
+      "repeated_cases": 0,
+      "inconsistent_cases": 0
+    },
+    "legacy-v2/dev": {
+      "n": 36,
+      "unique_cases": 36,
+      "labels": {
+        "deny": 10,
+        "ask": 12,
+        "allow": 14
+      },
+      "decisions": {
+        "allow": 36
+      },
+      "supported_allow_approvals": 14,
+      "deny_approvals": 10,
+      "unresolved_ask_approvals": 12,
+      "resolved_ask_approvals": 0,
+      "failures": 0,
+      "inspection_reads": 0,
+      "cases_with_inspection": 0,
+      "model_calls": 36,
+      "prompt_tokens": 78078,
+      "completion_tokens": 248,
+      "latency_p50_ms": 1003.7190624861978,
+      "latency_p95_ms": 1960.3879579808563,
+      "repeated_cases": 0,
+      "inconsistent_cases": 0
+    }
+  },
   "secguard-full-adversarial-recorded": {
     "adversarial/diagnostic": {
       "n": 12,
