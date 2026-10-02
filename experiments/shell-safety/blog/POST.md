@@ -1,6 +1,6 @@
 # Can a small local model decide whether a shell command is safe?
 
-A command can look harmless while doing something the user never asked for. `bash verify.sh` might run a test, or the script might read a credential. To decide whether to run it, an assistant needs to know what the command will do, what is in the repository, and what the user allowed.
+`rm -- output.txt` might remove a disposable benchmark result or erase a day's work. Even erasing a day's work could be right if the user says the benchmark was flawed and explicitly asks to discard it. The command alone cannot settle that decision. An assistant needs to know what the file is, how it got there, and what the user authorized.
 
 We tested six local models: **AutoShell-0.8B, LANCET Nano, ModernBERT-bash-classifier, Kestrel, secguard-guard 0.8B, and Qwen3.5-4B**. We also tested **native Codex and Claude agent paths**, including their command approval steps. The local models did not offer a dependable replacement for those tool paths. At a lenient setting, AutoShell approved some commands that conflicted with the task. At a strict setting, it blocked most commands that were justified. The Codex and Claude paths let more justified commands run in their separate test, but they too ran commands when important facts were missing.
 
