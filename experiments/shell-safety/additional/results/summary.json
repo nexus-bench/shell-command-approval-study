@@ -1,0 +1,342 @@
+{
+  "modernbert/allow/public/shellrisk": {
+    "allow": [
+      43,
+      50
+    ],
+    "deny": [
+      17,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 66.80081255035475,
+    "p95_ms": 98.25045894831419
+  },
+  "modernbert/allow/public/shellsafety": {
+    "allow": [
+      13,
+      50
+    ],
+    "deny": [
+      10,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 62.19979200977832,
+    "p95_ms": 81.31262508686632
+  },
+  "modernbert/allow/v2/dev": {
+    "allow": [
+      6,
+      14
+    ],
+    "deny": [
+      6,
+      10
+    ],
+    "ask": [
+      6,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 63.33560444181785,
+    "p95_ms": 73.14783392939717
+  },
+  "modernbert/allow/v2/test": {
+    "allow": [
+      6,
+      12
+    ],
+    "deny": [
+      6,
+      12
+    ],
+    "ask": [
+      6,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 62.05481250071898,
+    "p95_ms": 101.53545800130814
+  },
+  "modernbert/allow/adversarial/diagnostic": {
+    "allow": [
+      0,
+      6
+    ],
+    "deny": [
+      0,
+      4
+    ],
+    "ask": [
+      0,
+      2
+    ],
+    "errors": 0,
+    "p50_ms": 69.12687502335757,
+    "p95_ms": 72.37529207486659
+  },
+  "kestrel/allow/public/shellrisk": {
+    "allow": [
+      50,
+      50
+    ],
+    "deny": [
+      0,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 0.07491651922464371,
+    "p95_ms": 0.22816704586148262
+  },
+  "kestrel/allow/public/shellsafety": {
+    "allow": [
+      40,
+      50
+    ],
+    "deny": [
+      34,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 0.03406254108995199,
+    "p95_ms": 0.0862909946590662
+  },
+  "kestrel/allow/v2/dev": {
+    "allow": [
+      10,
+      14
+    ],
+    "deny": [
+      10,
+      10
+    ],
+    "ask": [
+      10,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 0.01656246604397893,
+    "p95_ms": 0.041207997128367424
+  },
+  "kestrel/allow/v2/test": {
+    "allow": [
+      10,
+      12
+    ],
+    "deny": [
+      10,
+      12
+    ],
+    "ask": [
+      10,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 0.023916480131447315,
+    "p95_ms": 0.05574990063905716
+  },
+  "kestrel/allow/adversarial/diagnostic": {
+    "allow": [
+      4,
+      6
+    ],
+    "deny": [
+      2,
+      4
+    ],
+    "ask": [
+      2,
+      2
+    ],
+    "errors": 0,
+    "p50_ms": 0.016979000065475702,
+    "p95_ms": 0.03787491004914045
+  },
+  "secguard/allow/public/shellrisk": {
+    "allow": [
+      50,
+      50
+    ],
+    "deny": [
+      50,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 537.7407500054687,
+    "p95_ms": 744.6729158982635
+  },
+  "secguard/allow/public/shellsafety": {
+    "allow": [
+      50,
+      50
+    ],
+    "deny": [
+      49,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 536.4657705067657,
+    "p95_ms": 687.1965000173077
+  },
+  "secguard/label_allow/public/shellrisk": {
+    "allow": [
+      50,
+      50
+    ],
+    "deny": [
+      50,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 537.7407500054687,
+    "p95_ms": 744.6729158982635
+  },
+  "secguard/label_allow/public/shellsafety": {
+    "allow": [
+      50,
+      50
+    ],
+    "deny": [
+      49,
+      50
+    ],
+    "ask": [
+      0,
+      0
+    ],
+    "errors": 0,
+    "p50_ms": 536.4657705067657,
+    "p95_ms": 687.1965000173077
+  },
+  "secguard/allow/v2/dev": {
+    "allow": [
+      14,
+      14
+    ],
+    "deny": [
+      10,
+      10
+    ],
+    "ask": [
+      12,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 510.27104147942737,
+    "p95_ms": 5862.830625032075
+  },
+  "secguard/allow/v2/test": {
+    "allow": [
+      12,
+      12
+    ],
+    "deny": [
+      12,
+      12
+    ],
+    "ask": [
+      12,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 602.7264585718513,
+    "p95_ms": 987.9122920101508
+  },
+  "secguard/label_allow/v2/dev": {
+    "allow": [
+      14,
+      14
+    ],
+    "deny": [
+      10,
+      10
+    ],
+    "ask": [
+      12,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 510.27104147942737,
+    "p95_ms": 5862.830625032075
+  },
+  "secguard/label_allow/v2/test": {
+    "allow": [
+      12,
+      12
+    ],
+    "deny": [
+      12,
+      12
+    ],
+    "ask": [
+      12,
+      12
+    ],
+    "errors": 0,
+    "p50_ms": 602.7264585718513,
+    "p95_ms": 987.9122920101508
+  },
+  "secguard/allow/adversarial/diagnostic": {
+    "allow": [
+      6,
+      6
+    ],
+    "deny": [
+      4,
+      4
+    ],
+    "ask": [
+      2,
+      2
+    ],
+    "errors": 0,
+    "p50_ms": 528.4230209654197,
+    "p95_ms": 559.0882919495925
+  },
+  "secguard/label_allow/adversarial/diagnostic": {
+    "allow": [
+      6,
+      6
+    ],
+    "deny": [
+      4,
+      4
+    ],
+    "ask": [
+      2,
+      2
+    ],
+    "errors": 0,
+    "p50_ms": 528.4230209654197,
+    "p95_ms": 559.0882919495925
+  }
+}

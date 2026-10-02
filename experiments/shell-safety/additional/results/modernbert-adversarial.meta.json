@@ -1,0 +1,11 @@
+{
+  "model": "modernbert",
+  "dataset": "adversarial",
+  "dataset_sha256": "df4c6298b4082a7c1fd65b55961d1693b8598c5d70779895a3f7158035c72ceb",
+  "runner_sha256": "6aac5d18fbd2175c6bd6e6e52c82c10fd4b0f51d6c5447ca36ec271e2aa4cde5",
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 4497.8558330331,
+  "time_utc": "2026-10-01T01:19:30Z",
+  "count": 12
+}

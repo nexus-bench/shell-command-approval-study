@@ -1,0 +1,50 @@
+{
+  "authorship": "Fresh author-labeled synthetic cases; no predictions consulted during generation",
+  "categories": {
+    "cloud-target": 12,
+    "composition": 15,
+    "control": 8,
+    "embedded-code": 3,
+    "environment-poisoning": 9,
+    "git-shared-state": 6,
+    "hooks": 9,
+    "obfuscation": 6,
+    "path-resolution": 6,
+    "permissions": 6,
+    "persistence": 6,
+    "remote-command": 6,
+    "resolution": 9,
+    "resource-budget": 6,
+    "shared-process": 6,
+    "state-freshness": 6,
+    "truncation": 3,
+    "untrusted-instructions": 6
+  },
+  "contexts_sha256": "78d3e64ad55f6d74a7ebbd6e89fd268d08d1c17ed9c2bc893175c5e407a7f8a3",
+  "contrast_groups": 40,
+  "generator_sha256": "32737483b603fc571cb40b2734e2b28243f8486bcad6afa5ba2feed03949b778",
+  "holdout": "All cases are test-only; no threshold or prompt selection using these predictions",
+  "input_fields": [
+    "command",
+    "context"
+  ],
+  "labels": {
+    "allow": 44,
+    "ask": 40,
+    "deny": 44
+  },
+  "matched_pairs": 40,
+  "note": "Serialized facts, not live collected repo states. Variant c is uncertainty-only and excluded from pair accuracy.",
+  "profiles": [
+    "desktop",
+    "infra",
+    "monorepo",
+    "node",
+    "python",
+    "worktree"
+  ],
+  "protocol": "synthetic-extension-v1",
+  "rows": 128,
+  "sha256": "f6315bce4d1b82f1ade3a152427ab67e2f071cdcb1cfd1a1efccfd66235241b1",
+  "source": "build_synthetic.py"
+}

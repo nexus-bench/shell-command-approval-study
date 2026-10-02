@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "2026-09-30T23:35:01Z",
+  "source": "ps -axo pid,rss,command; sampled during held-out inference",
+  "pid": 20173,
+  "rss_kib": 951120,
+  "note": "Single resident-memory observation, not peak usage, total system memory, or cold-start benchmark."
+}

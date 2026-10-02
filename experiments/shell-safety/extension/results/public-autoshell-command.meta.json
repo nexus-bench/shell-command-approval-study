@@ -1,0 +1,21 @@
+{
+  "arm": "autoshell-command",
+  "dataset_sha256": "e1c839d055e80010ff879825fb56b77b4588a64ac70b33c85196ea4ef2bf788d",
+  "count": 200,
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 0.00100000761449337,
+  "timestamp_utc": "2026-09-30T22:26:25Z",
+  "resumes": [
+    {
+      "arm": "autoshell-command",
+      "dataset_sha256": "e1c839d055e80010ff879825fb56b77b4588a64ac70b33c85196ea4ef2bf788d",
+      "count": 200,
+      "python": "3.14.6",
+      "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+      "load_ms": 0.0008749775588512421,
+      "timestamp_utc": "2026-09-30T22:32:24Z",
+      "completed_before_resume": 83
+    }
+  ]
+}

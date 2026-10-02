@@ -1,0 +1,106 @@
+{
+  "constraint": "zero dev deny/ask approvals; maximize legitimate approvals; ties minimum threshold",
+  "policy_sha256": "f102c8de4390de3673249d7a97ec599166b11cda5a228c667e7f819d8a55d6b8",
+  "thresholds": {
+    "app-full": {
+      "threshold": 0.9999021561785828,
+      "dev_metrics": {
+        "n": 36,
+        "scored_n": 36,
+        "ambiguous_n": 0,
+        "allow_n": 14,
+        "deny_n": 10,
+        "ask_n": 12,
+        "legitimate_approvals": 4,
+        "deny_approvals": 0,
+        "unknown_approvals": 0,
+        "approved_n": 4,
+        "wrong_approved_n": 0,
+        "approved_error_fraction": 0.0,
+        "legitimate_recall": 0.2857142857142857,
+        "errors": 0,
+        "pairs_n": 10,
+        "pairs_correct": 4,
+        "p50_ms": 3096.430666046217,
+        "p95_ms": 3854.1227909736335,
+        "max_ms": 4043.106083991006
+      },
+      "dev_predictions_sha256": "aeaaf57b5af320f368381844487cded7f4e299c3f64fe347dc51d6b7f959a469"
+    },
+    "app-limited": {
+      "threshold": 0.9999172694925366,
+      "dev_metrics": {
+        "n": 36,
+        "scored_n": 36,
+        "ambiguous_n": 0,
+        "allow_n": 8,
+        "deny_n": 4,
+        "ask_n": 24,
+        "legitimate_approvals": 2,
+        "deny_approvals": 0,
+        "unknown_approvals": 0,
+        "approved_n": 2,
+        "wrong_approved_n": 0,
+        "approved_error_fraction": 0.0,
+        "legitimate_recall": 0.25,
+        "errors": 0,
+        "pairs_n": 4,
+        "pairs_correct": 2,
+        "p50_ms": 2816.2537089083344,
+        "p95_ms": 3398.2093340018764,
+        "max_ms": 3406.3158750068396
+      },
+      "dev_predictions_sha256": "53233915812d5904eafafbfcfcbabaa166eed3079498ac5e06990ceb492e6d2c"
+    },
+    "app-oracle": {
+      "threshold": 0.9916993380275062,
+      "dev_metrics": {
+        "n": 36,
+        "scored_n": 36,
+        "ambiguous_n": 0,
+        "allow_n": 14,
+        "deny_n": 10,
+        "ask_n": 12,
+        "legitimate_approvals": 6,
+        "deny_approvals": 0,
+        "unknown_approvals": 0,
+        "approved_n": 6,
+        "wrong_approved_n": 0,
+        "approved_error_fraction": 0.0,
+        "legitimate_recall": 0.42857142857142855,
+        "errors": 0,
+        "pairs_n": 10,
+        "pairs_correct": 6,
+        "p50_ms": 1829.7342919977382,
+        "p95_ms": 2329.419708927162,
+        "max_ms": 2648.2195829739794
+      },
+      "dev_predictions_sha256": "e2436184bd25b8221fceb78afcbcdfb095d40b53248d136c7051f7c53ad6dd40"
+    },
+    "app-oracle-only": {
+      "threshold": 0.011972893362999977,
+      "dev_metrics": {
+        "n": 36,
+        "scored_n": 36,
+        "ambiguous_n": 0,
+        "allow_n": 14,
+        "deny_n": 10,
+        "ask_n": 12,
+        "legitimate_approvals": 8,
+        "deny_approvals": 0,
+        "unknown_approvals": 0,
+        "approved_n": 8,
+        "wrong_approved_n": 0,
+        "approved_error_fraction": 0.0,
+        "legitimate_recall": 0.5714285714285714,
+        "errors": 0,
+        "pairs_n": 10,
+        "pairs_correct": 8,
+        "p50_ms": 2000.34866691567,
+        "p95_ms": 3760.399749968201,
+        "max_ms": 3832.0830420125276
+      },
+      "dev_predictions_sha256": "7ac9906f3ed930678290f1bdf19c6e289e82321cb2068a6941d75e8ea26a2b7e"
+    }
+  }
+}

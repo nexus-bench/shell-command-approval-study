@@ -1,0 +1,9 @@
+{
+  "cases_sha256": "c5ca9cefd3bca9fbaaea67d56c2aed4f50ce7c9604ff2811098afd95db2fdf7d",
+  "builder_sha256": "032051c996496e02196e6b14313cc1bdd4bf7212f211ff2aa68f69a1a642a304",
+  "policy_sha256": "f102c8de4390de3673249d7a97ec599166b11cda5a228c667e7f819d8a55d6b8",
+  "n": 72,
+  "fixture_root": ".experiments/shell-safety/v2/fixtures",
+  "git_version": "git version 2.39.5 (Apple Git-154)",
+  "note": "Real Git repositories; only fixed setup/inspection commands executed. Labels and summaries are authored separately from raw collection."
+}

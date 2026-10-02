@@ -1,0 +1,148 @@
+{
+  "exact_overlap_unique_commands": {
+    "original": 1,
+    "public_selected": 0,
+    "shellrisk": 0,
+    "shellsafety": 1
+  },
+  "limitations": "Exact strings do not detect semantic paraphrases or undisclosed model training overlap.",
+  "original": {
+    "categories": {
+      "authorization": 2,
+      "control": 16,
+      "destination": 4,
+      "environment": 4,
+      "path": 8,
+      "provenance": 14,
+      "script": 8,
+      "secrets": 4,
+      "unknown": 4
+    },
+    "labels": {
+      "allow": 32,
+      "ask": 16,
+      "deny": 16
+    },
+    "rows": 64,
+    "unique_commands": 39
+  },
+  "public": {
+    "shellrisk": {
+      "categories": {
+        "atomicredteam": 47,
+        "gtfobins": 142,
+        "nl2bash": 250,
+        "payloads": 4,
+        "swesmith": 2387,
+        "terminalbench": 1364
+      },
+      "labels": {
+        "allow": 4001,
+        "deny": 193
+      },
+      "rows": 4194,
+      "unique_commands": 4194
+    },
+    "shellsafety": {
+      "categories": {
+        "agent": 72,
+        "build": 48,
+        "cloud": 30,
+        "complex": 155,
+        "docker": 30,
+        "fileops": 54,
+        "network_curl": 48,
+        "network_gh": 30,
+        "network_git": 90,
+        "network_rsync": 24,
+        "network_scp": 24,
+        "network_ssh": 36,
+        "network_wget": 30,
+        "pkgman": 42,
+        "privilege": 24,
+        "system": 24,
+        "testing": 42,
+        "windows_cmd": 69,
+        "windows_ps": 131
+      },
+      "labels": {
+        "allow": 600,
+        "deny": 403
+      },
+      "rows": 1003,
+      "unique_commands": 940
+    }
+  },
+  "public_selected": {
+    "categories": {
+      "agent": 6,
+      "atomicredteam": 23,
+      "build": 4,
+      "cloud": 6,
+      "complex": 6,
+      "docker": 6,
+      "fileops": 6,
+      "gtfobins": 23,
+      "network_curl": 6,
+      "network_gh": 6,
+      "network_git": 6,
+      "network_rsync": 6,
+      "network_scp": 6,
+      "network_ssh": 6,
+      "network_wget": 6,
+      "nl2bash": 17,
+      "payloads": 4,
+      "pkgman": 6,
+      "privilege": 6,
+      "swesmith": 16,
+      "system": 6,
+      "terminalbench": 17,
+      "testing": 6
+    },
+    "labels": {
+      "allow": 100,
+      "deny": 100
+    },
+    "rows": 200,
+    "unique_commands": 198
+  },
+  "scope": "Structure and exact command strings only; no model predictions read",
+  "synthetic": {
+    "categories": {
+      "cloud-target": 12,
+      "composition": 15,
+      "control": 8,
+      "embedded-code": 3,
+      "environment-poisoning": 9,
+      "git-shared-state": 6,
+      "hooks": 9,
+      "obfuscation": 6,
+      "path-resolution": 6,
+      "permissions": 6,
+      "persistence": 6,
+      "remote-command": 6,
+      "resolution": 9,
+      "resource-budget": 6,
+      "shared-process": 6,
+      "state-freshness": 6,
+      "truncation": 3,
+      "untrusted-instructions": 6
+    },
+    "labels": {
+      "allow": 44,
+      "ask": 40,
+      "deny": 44
+    },
+    "rows": 128,
+    "unique_commands": 48
+  },
+  "synthetic_context_profiles": {
+    "desktop": 12,
+    "infra": 18,
+    "monorepo": 9,
+    "node": 38,
+    "python": 39,
+    "worktree": 12
+  },
+  "synthetic_sha256": "f6315bce4d1b82f1ade3a152427ab67e2f071cdcb1cfd1a1efccfd66235241b1"
+}

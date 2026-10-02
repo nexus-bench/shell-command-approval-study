@@ -1,0 +1,25 @@
+{
+  "identity": {
+    "arm": "native-full",
+    "split": "dev",
+    "data_sha256": "c5ca9cefd3bca9fbaaea67d56c2aed4f50ce7c9604ff2811098afd95db2fdf7d",
+    "policy_sha256": "f102c8de4390de3673249d7a97ec599166b11cda5a228c667e7f819d8a55d6b8",
+    "runner_sha256": "d32bb0d7978ade2b792023707aa9182de69026ff1f58f824e0e34786b2c6518c",
+    "model_manifest_sha256": "631e72a9cc639e9dc4b57f7295239ac33acfed26847237aa19ce46a32decdd49",
+    "inputs_sha256": "d1ec4626c4c0b09578717b580c46cbc635560fb457cfbc6a08ab8e14f2ef05a3",
+    "settings": {
+      "context": 4096,
+      "threads": 4,
+      "gpu_layers": 0,
+      "parallel": 1,
+      "seed": 20260930,
+      "temperature": 0,
+      "max_tokens": 1
+    }
+  },
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "timestamp_utc": "2026-09-30T23:22:47Z",
+  "count": 36,
+  "resumes": []
+}

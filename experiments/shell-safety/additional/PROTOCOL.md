@@ -1,0 +1,13 @@
+# Additional local shell classifiers
+
+Frozen before scoring: ModernBERT at `58e865e4cca8952846db2715356336847a9824f9`, secguard at `d5a36ff43cbc31275f23e3f08b51c56984b2e115`, Kestrel at `c95fa65530f268a63f06bd5e4efd368584dcd3d4`. AutoShell-350M returned HTTP 401 on the public model API; excluded as unavailable, not scored as a failure. Qwen3-4B excluded at the user's request.
+
+Use the existing frozen 200 public examples and 72 v2 repository cases, with the 12 v2 adversarial cases as a separate diagnostic. These are previously inspected regression sets, not new blind holdouts. No prompt or threshold tuning, no new labels. Public source labels and v2 application-policy labels are different targets and must be reported separately. The three available models have no documented repository-evidence input, so use native command input only (ModernBERT also receives CWD). Same-command opposing-state cases necessarily receive identical inputs; these measure limitations of the model interface, not hidden repository reasoning.
+
+ModernBERT: published `CWD: …\nCOMMAND: …` format, config label mapping, argmax, CPU float32, four threads. Use supplied CWD when present; otherwise `/repo` is a stipulated default. Reject over-capacity input explicitly; never silently truncate.
+
+Kestrel: reproduce the published normalization and char_wb TF-IDF LinearSVM computation from Kontext source revision `8a0096c658167f29b1ee4927e812ff316e9d84c8`; validate against upstream golden examples before dataset scoring. Use the artifact threshold. Runtime is our Python port, so latency is not the publisher's Go implementation latency.
+
+secguard: exact system prompt and ChatML framing from `random1st/secguard` revision `d45bbb55c30c767bb0c1fb07885a69bb11365836`. Greedy decode, 20 tokens, 512-token context; strip completed thinking block, accept exact safe/destructive label. Reproduce early valid-label termination by inspecting generated token prefixes. CPU four threads in llama.cpp; this differs from upstream GPU and BF16 KV defaults. Store raw output and first-token confidence. Report both label-only and native 0.85 destructive-confidence gate; native low-confidence destructive predictions fall through to safe. Invalid/capacity errors intervene in our research harness, not a claim about native secguard's complete guard stack.
+
+All commands are inert strings. Never execute corpus commands. Record model/data/code hashes, versions, raw predictions, errors, per-source counts, v2 deny and unknown approvals, legitimate approvals, and warm latency. Weights and third-party source remain in ignored `.experiments`; public prompts are represented by input hashes in checked-in predictions.

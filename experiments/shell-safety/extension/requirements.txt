@@ -1,0 +1,2 @@
+# Add to the original ../requirements-lock.txt environment for public Parquet.
+pyarrow==25.0.1

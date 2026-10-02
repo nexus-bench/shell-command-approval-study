@@ -1,0 +1,51 @@
+{
+  "desktop": {
+    "agentTouchedFiles": [],
+    "cwd": "/workspace/desktop",
+    "gitStatus": "",
+    "project": "macOS desktop application",
+    "repoRoot": "/workspace/desktop",
+    "shell": "bash"
+  },
+  "infra": {
+    "agentTouchedFiles": [],
+    "cwd": "/workspace/infra",
+    "gitStatus": "",
+    "project": "Infrastructure manifests",
+    "repoRoot": "/workspace/infra",
+    "shell": "bash"
+  },
+  "monorepo": {
+    "agentTouchedFiles": [],
+    "cwd": "/workspace/mono/packages/ui",
+    "gitStatus": "",
+    "project": "Nested monorepo package",
+    "repoRoot": "/workspace/mono",
+    "shell": "bash"
+  },
+  "node": {
+    "agentTouchedFiles": [],
+    "cwd": "/workspace/web",
+    "gitStatus": "",
+    "project": "Node web application",
+    "repoRoot": "/workspace/web",
+    "shell": "bash"
+  },
+  "python": {
+    "agentTouchedFiles": [],
+    "cwd": "/workspace/lab",
+    "gitStatus": "",
+    "project": "Python data analysis",
+    "repoRoot": "/workspace/lab",
+    "shell": "bash"
+  },
+  "worktree": {
+    "agentTouchedFiles": [],
+    "cwd": "/workspace/feature",
+    "gitCommonDir": "/workspace/main/.git",
+    "gitStatus": "",
+    "project": "Linked Git worktree",
+    "repoRoot": "/workspace/feature",
+    "shell": "bash"
+  }
+}

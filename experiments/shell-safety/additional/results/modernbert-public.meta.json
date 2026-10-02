@@ -1,0 +1,11 @@
+{
+  "model": "modernbert",
+  "dataset": "public",
+  "dataset_sha256": "e1c839d055e80010ff879825fb56b77b4588a64ac70b33c85196ea4ef2bf788d",
+  "runner_sha256": "6aac5d18fbd2175c6bd6e6e52c82c10fd4b0f51d6c5447ca36ec271e2aa4cde5",
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 4497.8558330331,
+  "time_utc": "2026-10-01T01:19:12Z",
+  "count": 200
+}

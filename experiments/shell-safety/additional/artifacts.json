@@ -1,0 +1,96 @@
+{
+  "models": {
+    "modernbert": {
+      "repo": "P0u4a/ModernBERT-bash-classifier",
+      "revision": "58e865e4cca8952846db2715356336847a9824f9"
+    },
+    "secguard": {
+      "repo": "random1st/secguard-models",
+      "revision": "d5a36ff43cbc31275f23e3f08b51c56984b2e115"
+    },
+    "kestrel": {
+      "repo": "kontext-security/Kestrel",
+      "revision": "c95fa65530f268a63f06bd5e4efd368584dcd3d4"
+    }
+  },
+  "unavailable": {
+    "tomngdev/AutoShell-350M-GGUF": "Public API HTTP 401"
+  },
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "tokenizers": "0.23.2",
+    "safetensors": "0.8.0",
+    "huggingface_hub": "1.33.0"
+  },
+  "files": {
+    "source/lib.rs": {
+      "bytes": 14503,
+      "sha256": "e6b19069bba93043ce4a748687f5a3406ed4df82288e40f3d53126a346fc788c"
+    },
+    "source/normalize.go": {
+      "bytes": 4107,
+      "sha256": "f8bebf76b430b1ff0d545c0f5e3ddee7aee422115bca612ad1e7ee18739af69e"
+    },
+    "source/svm.json.gz": {
+      "bytes": 616803,
+      "sha256": "4ad40b4a3bd0862785e02a060ab243c95b85670d2565db9d41fb0cb4ac5221e3"
+    },
+    "source/golden.jsonl": {
+      "bytes": 13838,
+      "sha256": "dfa7c302fca69745168961bbca69c194c3b9051abac7a599040415af71ea1b3e"
+    },
+    "source/svm.go": {
+      "bytes": 6689,
+      "sha256": "a5b2ac6037736c872bd18bed6fa44fa841f270de28382f77cefa5757baf86ecd"
+    },
+    "source/brain.rs": {
+      "bytes": 2576,
+      "sha256": "7daf647ab3e423ea63e2a424a110cd69a525d433fc2de7c66eddfe9c34a8fbe5"
+    },
+    "source/export_portable.py": {
+      "bytes": 9099,
+      "sha256": "aae57ed9a1a65f9185c3c8355cde2f4b15f7072145357b868c5c9845f4ce43e4"
+    },
+    "modernbert/model.safetensors": {
+      "bytes": 598439784,
+      "sha256": "af76659dd3de22a12f3e81717b82c608944be8a85cb9f409f419ffdd0f6ba4f1"
+    },
+    "modernbert/tokenizer_config.json": {
+      "bytes": 380,
+      "sha256": "fb54f027372062b2ca52282efb04d178a8b57167a00cd8f4e816515823a2c016"
+    },
+    "modernbert/config.json": {
+      "bytes": 2048,
+      "sha256": "30f3b34139d997a42d17c07be0c1e98ed95ae123b45917366dd09710616b4a10"
+    },
+    "modernbert/tokenizer.json": {
+      "bytes": 3583326,
+      "sha256": "ca870c678352403d107496dc78899fa666ed0f56fef63e88ae398fafe5d78c45"
+    },
+    "modernbert/README.md": {
+      "bytes": 3241,
+      "sha256": "335fb9f4eee87eae88191f53f1dbab44824f9bfb59469819fc4e9ebe5f6e2bb7"
+    },
+    "kestrel/classifier.json": {
+      "bytes": 2503402,
+      "sha256": "1df8b3e5f2bfc4e1fe95230ee9b3d37f63aaa461a8551982fcc0dd7103c8221b"
+    },
+    "kestrel/README.md": {
+      "bytes": 2331,
+      "sha256": "f33a93c94dc73e4558ba7b342dad7716ff2c3912d90360e1f4542130de7cffc9"
+    },
+    "kestrel/SHA256SUMS": {
+      "bytes": 82,
+      "sha256": "d3975108db6b28bf8f224c634a76f760bcd4ee2e77337930bb3e1046471d6bf0"
+    },
+    "secguard/README.md": {
+      "bytes": 2986,
+      "sha256": "acb05f76091848bd87b1ac39f74a660fc81ecd0112a21daa5fb8c9fd62a532a1"
+    },
+    "secguard/secguard-guard.gguf": {
+      "bytes": 811843072,
+      "sha256": "211500d3603bbae9616d45c04c360b855a735c1fb0cd676cc2e667dd49be9a7b"
+    }
+  }
+}

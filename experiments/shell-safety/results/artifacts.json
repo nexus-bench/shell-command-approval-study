@@ -1,0 +1,232 @@
+[
+  {
+    "repo": "tomngdev/AutoShell-350M-GGUF",
+    "error": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "repo": "tomngdev/AutoShell-0.8B-GGUF",
+    "revision": "1e73964514912dfc4816537c3b538fe949840f87",
+    "artifacts": [
+      {
+        "file": "AutoShell-0.8B-Q8_0.gguf",
+        "sha256": "4be8c98cdd40455aa40d28938ff46ea747bdaa7abd5d2e2b665ab260922285d2",
+        "bytes": 811836928
+      }
+    ]
+  },
+  {
+    "repo": "tomngdev/AutoShell-350M",
+    "error": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "repo": "tomngdev/AutoShell-0.8B",
+    "revision": "28c88232103766edfbfa0bc54e7fccd1c70d70db",
+    "artifacts": []
+  },
+  {
+    "repo": "fingerthief/lancet-nano",
+    "revision": "dd28434aec9a5143d52523d553f0c0e992bbfd51",
+    "artifacts": [
+      {
+        "file": "bundle/LICENSE.md",
+        "sha256": "90abb45aa24447059522cddb241b7b4dac1d3ea00bed34a2d1c76bc8cd92e1d2",
+        "bytes": 2398
+      },
+      {
+        "file": "bundle/MODEL-LICENSE.md",
+        "sha256": "fc9cf6d24e55e95709360bd5c3b05de379cd0b61461b3f609d440e8c106cafa2",
+        "bytes": 2330
+      },
+      {
+        "file": "bundle/MODEL_CARD.md",
+        "sha256": "5ad7fe1377540b73a44a5a0f33bcc9e545b2d0f4917fdae7da520bc61379ceda",
+        "bytes": 6997
+      },
+      {
+        "file": "bundle/MODIFICATIONS.md",
+        "sha256": "4ada29da9b74fff33d13cdd787266ce4be87840ce57356019f07ffb9f735d030",
+        "bytes": 2020
+      },
+      {
+        "file": "bundle/NOTICE.txt",
+        "sha256": "ca4cddd0f27a722109eb559132c2a69bd8186e497ad48510979c3a6cbbb63ebf",
+        "bytes": 4853
+      },
+      {
+        "file": "bundle/README.md",
+        "sha256": "fdc3ad1e8a618e890b91e0b5afff2f94842ba2e0cc252f2db24aaf9306e3a786",
+        "bytes": 4467
+      },
+      {
+        "file": "bundle/RELEASE-MANIFEST.json",
+        "sha256": "6be2bd5de596f234ce8692729ce0f6ed3b3fe860cafa38791a77ed68b541878e",
+        "bytes": 5381
+      },
+      {
+        "file": "bundle/THIRD-PARTY-NOTICES.md",
+        "sha256": "8f870b688edbfd1e44dec2535d50a79110a26fa98a370170d51ec884072e6e05",
+        "bytes": 5684
+      },
+      {
+        "file": "bundle/classify.py",
+        "sha256": "c1568472914883d9e3b1087213625a16b5ec01345492bff40ec80166567b8248",
+        "bytes": 4458
+      },
+      {
+        "file": "bundle/licenses/Apache-2.0.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "bytes": 11358
+      },
+      {
+        "file": "bundle/licenses/CodeT5-BSD-3-Clause.txt",
+        "sha256": "d9d01e877963904b9c62f38bacb7237191a8ce069d3a0be4f2418a5f6153a577",
+        "bytes": 1481
+      },
+      {
+        "file": "bundle/licenses/MIT.txt",
+        "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1",
+        "bytes": 1036
+      },
+      {
+        "file": "bundle/licenses/NL2Bash-data-MIT.txt",
+        "sha256": "4ac5c8b7fb1d1fccfa52916749674d67b2024c76616fed89db7f67a976056750",
+        "bytes": 1075
+      },
+      {
+        "file": "bundle/licenses/SWE-smith-license-declaration.md",
+        "sha256": "e78c28e07c27958c4454495b4569e0ab43814645ccd37076b1d2a8fb9f02cd16",
+        "bytes": 1141
+      },
+      {
+        "file": "bundle/licenses/Terminal-Bench-license-declaration.md",
+        "sha256": "7b620c00a167eeeb68168b3b3fc99444b9ce2276ec898aaedffea3ac7850505d",
+        "bytes": 1140
+      },
+      {
+        "file": "bundle/licenses/atomic-red-team-MIT.txt",
+        "sha256": "6f8b130133ac31ade98c446bceb47382a6b373028ac8d6a0094500220c556972",
+        "bytes": 1077
+      },
+      {
+        "file": "bundle/licenses/azure-cli-LICENSE.txt",
+        "sha256": "36ddd63237361cf5a2b6a0055f57723db47f46d89bf912d6b92a18cff2090114",
+        "bytes": 1099
+      },
+      {
+        "file": "bundle/licenses/botocore-NOTICE.txt",
+        "sha256": "1d1c5a6f3d68cb11f4fad1afa86a7450d0286f15c176ef0ea048f255b46d95b0",
+        "bytes": 2467
+      },
+      {
+        "file": "bundle/licenses/codet5-small-upstream-model-card.md",
+        "sha256": "3465312de5021aa7092e9e905e3d8c33a1636d7ecd72e0e30e5d5dc8cc9bce1e",
+        "bytes": 4603
+      },
+      {
+        "file": "bundle/licenses/codet5p-220m-upstream-model-card.md",
+        "sha256": "18702f8090b5b7828b7a80cb2bcf4bf9ecfca4e68a56f7cac8e8495c8cd2caca",
+        "bytes": 5308
+      },
+      {
+        "file": "bundle/licenses/docker-cli-LICENSE.txt",
+        "sha256": "737c0b1c449cb08a5c58c66650ac623fa0104673b26d92af660ef52bcc5e7f27",
+        "bytes": 10956
+      },
+      {
+        "file": "bundle/licenses/docker-cli-NOTICE.txt",
+        "sha256": "a6dc343629353d41f43fa5398e05594b47eca9b404c0ebb839610a50910fd230",
+        "bytes": 654
+      },
+      {
+        "file": "bundle/licenses/gh-cli-LICENSE.txt",
+        "sha256": "8999137010582da29456c10e0a628bf3fa7ead05ab3ae5f424ad25cd0dd94574",
+        "bytes": 1089
+      },
+      {
+        "file": "bundle/licenses/history/LANCET-extraction-provenance.md",
+        "sha256": "e29fd5d700fbab0faf4447e3fd8a9fa25d3b569e2f06bfa8420d1b9f58539958",
+        "bytes": 997
+      },
+      {
+        "file": "bundle/licenses/kubectl-LICENSE.txt",
+        "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363",
+        "bytes": 11558
+      },
+      {
+        "file": "bundle/licenses/pi-jev-guard-MIT.txt",
+        "sha256": "41384dc5cf15ef69653ce54c918e0e90e6771eec108ab080ab02021f56b07ebe",
+        "bytes": 1073
+      },
+      {
+        "file": "bundle/licenses/shell-safety-v2-license-declaration.md",
+        "sha256": "d20865f8a746239b4074a7962645a83a780dc2fcdc86bd21d152edd0457b2407",
+        "bytes": 976
+      },
+      {
+        "file": "bundle/licenses/tldr-pages-LICENSE.md",
+        "sha256": "826498c9793c53709035760c33bd6681e48380d34031320447febe675420ef4d",
+        "bytes": 1572
+      },
+      {
+        "file": "bundle/model/README.md",
+        "sha256": "97883ba96bd38bad0720b4da48764838933c0042c53db6568c1283060f8c064e",
+        "bytes": 102
+      },
+      {
+        "file": "bundle/model/classify.py",
+        "sha256": "c1568472914883d9e3b1087213625a16b5ec01345492bff40ec80166567b8248",
+        "bytes": 4458
+      },
+      {
+        "file": "bundle/model/export.json",
+        "sha256": "9c6afb69aa7aa08a62f649001e031ba4f2d35d796c08a58240bef935f189d875",
+        "bytes": 631
+      },
+      {
+        "file": "bundle/model/model-int8.onnx",
+        "sha256": "1b6249c369ad390682d034fb9ee872dcecaa0c3418eb89218b6fa6111594a547",
+        "bytes": 110560681
+      },
+      {
+        "file": "bundle/model/model.json",
+        "sha256": "0154d7f2529b64e65f802743a3e89ccc301ac2b8b23f0b61fed2834db46cd675",
+        "bytes": 3027
+      },
+      {
+        "file": "bundle/model/requirements.txt",
+        "sha256": "655b26213458fd9c4638503501e88f3b8e2384c3e50a403cb17154f07208daad",
+        "bytes": 126
+      },
+      {
+        "file": "bundle/model/tokenizer.json",
+        "sha256": "d30700d23490c46559dcade4d52f0b32950b6d358e00c6d8b340ff819b91c9e7",
+        "bytes": 2270240
+      },
+      {
+        "file": "bundle/provenance/nano-training-receipt.json",
+        "sha256": "b34ca03873827ffef42bd39bc03ae0ae2494b158320543bbbbd7b40b821d770b",
+        "bytes": 14884
+      },
+      {
+        "file": "bundle/provenance/v5-lineage-audit.json",
+        "sha256": "d9c29fdc79b49293efa27aeb4183b6d3e4b7c6005e07fafff63febfddb00420a",
+        "bytes": 14070
+      },
+      {
+        "file": "bundle/requirements.txt",
+        "sha256": "655b26213458fd9c4638503501e88f3b8e2384c3e50a403cb17154f07208daad",
+        "bytes": 126
+      },
+      {
+        "file": "bundle/verify_bundle.py",
+        "sha256": "1730d603b5b0839e62757b4b2a6b81fa7c4a519786e5234b814829255f2be14d",
+        "bytes": 2818
+      }
+    ]
+  },
+  {
+    "repo": "P0u4a/ModernBERT-bash-classifier",
+    "revision": "58e865e4cca8952846db2715356336847a9824f9",
+    "artifacts": []
+  }
+]

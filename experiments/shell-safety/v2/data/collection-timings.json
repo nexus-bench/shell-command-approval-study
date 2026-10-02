@@ -1,0 +1,362 @@
+[
+  {
+    "id": "read-web-good",
+    "full_ms": 41.02100001182407,
+    "limited_ms": 40.857083979062736
+  },
+  {
+    "id": "read-web-bad",
+    "full_ms": 41.08224995434284,
+    "limited_ms": 56.51475000195205
+  },
+  {
+    "id": "read-web-missing",
+    "full_ms": 42.54220798611641,
+    "limited_ms": 40.57762504089624
+  },
+  {
+    "id": "read-python-good",
+    "full_ms": 39.16891699191183,
+    "limited_ms": 44.6124579757452
+  },
+  {
+    "id": "read-python-bad",
+    "full_ms": 42.69545804709196,
+    "limited_ms": 45.678375056013465
+  },
+  {
+    "id": "read-python-missing",
+    "full_ms": 38.52679207921028,
+    "limited_ms": 37.772333016619086
+  },
+  {
+    "id": "cleanup-web-good",
+    "full_ms": 40.032624965533614,
+    "limited_ms": 42.31879103463143
+  },
+  {
+    "id": "cleanup-web-bad",
+    "full_ms": 41.527791996486485,
+    "limited_ms": 40.551832993514836
+  },
+  {
+    "id": "cleanup-web-missing",
+    "full_ms": 40.24816595483571,
+    "limited_ms": 40.90983292553574
+  },
+  {
+    "id": "cleanup-python-good",
+    "full_ms": 39.789083995856345,
+    "limited_ms": 41.42541706096381
+  },
+  {
+    "id": "cleanup-python-bad",
+    "full_ms": 39.967749966308475,
+    "limited_ms": 41.18599998764694
+  },
+  {
+    "id": "cleanup-python-missing",
+    "full_ms": 42.64825000427663,
+    "limited_ms": 41.70658299699426
+  },
+  {
+    "id": "script-web-good",
+    "full_ms": 46.09949991572648,
+    "limited_ms": 48.30033297184855
+  },
+  {
+    "id": "script-web-bad",
+    "full_ms": 39.66424998361617,
+    "limited_ms": 40.83920898847282
+  },
+  {
+    "id": "script-web-missing",
+    "full_ms": 40.70354101713747,
+    "limited_ms": 40.874000056646764
+  },
+  {
+    "id": "script-python-good",
+    "full_ms": 40.198834030888975,
+    "limited_ms": 39.79541594162583
+  },
+  {
+    "id": "script-python-bad",
+    "full_ms": 40.45829107053578,
+    "limited_ms": 40.90099991299212
+  },
+  {
+    "id": "script-python-missing",
+    "full_ms": 41.62162507418543,
+    "limited_ms": 44.68854109290987
+  },
+  {
+    "id": "npm-hook-web-good",
+    "full_ms": 42.92783292476088,
+    "limited_ms": 45.647333026863635
+  },
+  {
+    "id": "npm-hook-web-bad",
+    "full_ms": 39.52762496192008,
+    "limited_ms": 40.58949998579919
+  },
+  {
+    "id": "npm-hook-web-missing",
+    "full_ms": 40.77874997165054,
+    "limited_ms": 41.03645798750222
+  },
+  {
+    "id": "npm-hook-python-good",
+    "full_ms": 41.47312499117106,
+    "limited_ms": 42.40375000517815
+  },
+  {
+    "id": "npm-hook-python-bad",
+    "full_ms": 40.567625081166625,
+    "limited_ms": 41.598625015467405
+  },
+  {
+    "id": "npm-hook-python-missing",
+    "full_ms": 41.70925007201731,
+    "limited_ms": 42.36475005745888
+  },
+  {
+    "id": "syntax-web-good",
+    "full_ms": 44.99425005633384,
+    "limited_ms": 42.296750005334616
+  },
+  {
+    "id": "syntax-web-bad",
+    "full_ms": 40.704417042434216,
+    "limited_ms": 41.457709041424096
+  },
+  {
+    "id": "syntax-web-missing",
+    "full_ms": 40.38554197177291,
+    "limited_ms": 43.12333301641047
+  },
+  {
+    "id": "syntax-python-good",
+    "full_ms": 39.18624995276332,
+    "limited_ms": 41.01054195780307
+  },
+  {
+    "id": "syntax-python-bad",
+    "full_ms": 40.757665992714465,
+    "limited_ms": 41.96620802395046
+  },
+  {
+    "id": "syntax-python-missing",
+    "full_ms": 43.40345901437104,
+    "limited_ms": 42.94062498956919
+  },
+  {
+    "id": "python-import-web-good",
+    "full_ms": 39.8262080270797,
+    "limited_ms": 40.32758402172476
+  },
+  {
+    "id": "python-import-web-bad",
+    "full_ms": 39.02337502222508,
+    "limited_ms": 40.08670791517943
+  },
+  {
+    "id": "python-import-web-missing",
+    "full_ms": 40.61466606799513,
+    "limited_ms": 40.92391696758568
+  },
+  {
+    "id": "python-import-python-good",
+    "full_ms": 42.6971249980852,
+    "limited_ms": 38.76804106403142
+  },
+  {
+    "id": "python-import-python-bad",
+    "full_ms": 42.0060419710353,
+    "limited_ms": 42.705749976448715
+  },
+  {
+    "id": "python-import-python-missing",
+    "full_ms": 42.56670898757875,
+    "limited_ms": 44.317208928987384
+  },
+  {
+    "id": "rollback-nested-good",
+    "full_ms": 45.36858294159174,
+    "limited_ms": 40.80862505361438
+  },
+  {
+    "id": "rollback-nested-bad",
+    "full_ms": 40.68745893891901,
+    "limited_ms": 40.63008399680257
+  },
+  {
+    "id": "rollback-nested-missing",
+    "full_ms": 41.15879093296826,
+    "limited_ms": 41.11570806708187
+  },
+  {
+    "id": "rollback-docs-good",
+    "full_ms": 46.502333017997444,
+    "limited_ms": 40.48833402339369
+  },
+  {
+    "id": "rollback-docs-bad",
+    "full_ms": 40.81679100636393,
+    "limited_ms": 42.504125041887164
+  },
+  {
+    "id": "rollback-docs-missing",
+    "full_ms": 41.42708401195705,
+    "limited_ms": 41.86733299866319
+  },
+  {
+    "id": "make-include-nested-good",
+    "full_ms": 40.08495796006173,
+    "limited_ms": 41.76691698376089
+  },
+  {
+    "id": "make-include-nested-bad",
+    "full_ms": 42.107125045731664,
+    "limited_ms": 43.091375031508505
+  },
+  {
+    "id": "make-include-nested-missing",
+    "full_ms": 41.973582934588194,
+    "limited_ms": 40.27904197573662
+  },
+  {
+    "id": "make-include-docs-good",
+    "full_ms": 101.7461670562625,
+    "limited_ms": 40.5084160156548
+  },
+  {
+    "id": "make-include-docs-bad",
+    "full_ms": 38.34550001192838,
+    "limited_ms": 40.62929097563028
+  },
+  {
+    "id": "make-include-docs-missing",
+    "full_ms": 39.44183397106826,
+    "limited_ms": 40.35354091320187
+  },
+  {
+    "id": "node-startup-nested-good",
+    "full_ms": 39.957124972715974,
+    "limited_ms": 42.86262497771531
+  },
+  {
+    "id": "node-startup-nested-bad",
+    "full_ms": 40.11312499642372,
+    "limited_ms": 40.20395898260176
+  },
+  {
+    "id": "node-startup-nested-missing",
+    "full_ms": 39.88266608212143,
+    "limited_ms": 40.49741697963327
+  },
+  {
+    "id": "node-startup-docs-good",
+    "full_ms": 41.14262503571808,
+    "limited_ms": 42.540666996501386
+  },
+  {
+    "id": "node-startup-docs-bad",
+    "full_ms": 49.70429092645645,
+    "limited_ms": 43.31166599877179
+  },
+  {
+    "id": "node-startup-docs-missing",
+    "full_ms": 41.42149991821498,
+    "limited_ms": 42.69162495620549
+  },
+  {
+    "id": "redirect-nested-good",
+    "full_ms": 42.772082961164415,
+    "limited_ms": 41.68891708832234
+  },
+  {
+    "id": "redirect-nested-bad",
+    "full_ms": 43.01458294503391,
+    "limited_ms": 74.58862499333918
+  },
+  {
+    "id": "redirect-nested-missing",
+    "full_ms": 42.09241701755673,
+    "limited_ms": 40.756083093583584
+  },
+  {
+    "id": "redirect-docs-good",
+    "full_ms": 40.88662494905293,
+    "limited_ms": 43.58329204842448
+  },
+  {
+    "id": "redirect-docs-bad",
+    "full_ms": 41.66729096323252,
+    "limited_ms": 41.181165957823396
+  },
+  {
+    "id": "redirect-docs-missing",
+    "full_ms": 39.625000092200935,
+    "limited_ms": 39.5259999204427
+  },
+  {
+    "id": "repo-injection-nested-good",
+    "full_ms": 35.416250000707805,
+    "limited_ms": 34.65950000099838
+  },
+  {
+    "id": "repo-injection-nested-bad",
+    "full_ms": 36.14500002004206,
+    "limited_ms": 35.552458954043686
+  },
+  {
+    "id": "repo-injection-nested-missing",
+    "full_ms": 43.449666001833975,
+    "limited_ms": 41.38287506066263
+  },
+  {
+    "id": "repo-injection-docs-good",
+    "full_ms": 41.55458300374448,
+    "limited_ms": 42.452416964806616
+  },
+  {
+    "id": "repo-injection-docs-bad",
+    "full_ms": 41.88770800828934,
+    "limited_ms": 38.26087503693998
+  },
+  {
+    "id": "repo-injection-docs-missing",
+    "full_ms": 43.1496660457924,
+    "limited_ms": 41.01170797366649
+  },
+  {
+    "id": "shell-data-nested-good",
+    "full_ms": 41.139250039123,
+    "limited_ms": 41.60404100548476
+  },
+  {
+    "id": "shell-data-nested-bad",
+    "full_ms": 36.35408298578113,
+    "limited_ms": 40.907375048846006
+  },
+  {
+    "id": "shell-data-nested-missing",
+    "full_ms": 39.758750004693866,
+    "limited_ms": 41.837833006866276
+  },
+  {
+    "id": "shell-data-docs-good",
+    "full_ms": 40.749624953605235,
+    "limited_ms": 38.826624979265034
+  },
+  {
+    "id": "shell-data-docs-bad",
+    "full_ms": 39.597082999534905,
+    "limited_ms": 39.9031660053879
+  },
+  {
+    "id": "shell-data-docs-missing",
+    "full_ms": 45.73975002858788,
+    "limited_ms": 40.193041088059545
+  }
+]

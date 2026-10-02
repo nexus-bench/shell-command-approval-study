@@ -1,0 +1,9 @@
+{
+  "arm": "autoshell-native",
+  "dataset_sha256": "112e95d50e76b625f726527a419f1206190e9494c1194f86f9bbb192379b28fc",
+  "count": 8,
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 0.00100000761449337,
+  "timestamp_utc": "2026-09-30T22:25:53Z"
+}

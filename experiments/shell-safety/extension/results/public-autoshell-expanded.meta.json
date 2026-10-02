@@ -1,0 +1,61 @@
+{
+  "arm": "autoshell-expanded",
+  "dataset_sha256": "e1c839d055e80010ff879825fb56b77b4588a64ac70b33c85196ea4ef2bf788d",
+  "fingerprint": {
+    "inputs_sha256": "c632815d0f3d94774e20e0098b7c4fd8c0fc396bb238844ca03aaff6a2137531",
+    "parser_sha256": "334475b5ebc6822b9c23759c227c2e81894043118b95700a2574165211b101c5",
+    "artifacts_manifest_sha256": "631e72a9cc639e9dc4b57f7295239ac33acfed26847237aa19ce46a32decdd49",
+    "declared_server_settings": {
+      "context": 4096,
+      "parallel": 1,
+      "threads": 4,
+      "gpu_layers": 0,
+      "port": 18765
+    },
+    "generation": {
+      "max_tokens": 1,
+      "temperature": 0,
+      "seed": 20260930,
+      "top_logprobs": 20,
+      "cache_prompt": false
+    },
+    "redacted": true
+  },
+  "count": 200,
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 0.0010830117389559746,
+  "timestamp_utc": "2026-09-30T22:37:04Z",
+  "resumes": [
+    {
+      "arm": "autoshell-expanded",
+      "dataset_sha256": "e1c839d055e80010ff879825fb56b77b4588a64ac70b33c85196ea4ef2bf788d",
+      "fingerprint": {
+        "inputs_sha256": "c632815d0f3d94774e20e0098b7c4fd8c0fc396bb238844ca03aaff6a2137531",
+        "parser_sha256": "334475b5ebc6822b9c23759c227c2e81894043118b95700a2574165211b101c5",
+        "artifacts_manifest_sha256": "631e72a9cc639e9dc4b57f7295239ac33acfed26847237aa19ce46a32decdd49",
+        "declared_server_settings": {
+          "context": 4096,
+          "parallel": 1,
+          "threads": 4,
+          "gpu_layers": 0,
+          "port": 18765
+        },
+        "generation": {
+          "max_tokens": 1,
+          "temperature": 0,
+          "seed": 20260930,
+          "top_logprobs": 20,
+          "cache_prompt": false
+        },
+        "redacted": true
+      },
+      "count": 200,
+      "python": "3.14.6",
+      "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+      "load_ms": 0.0014579854905605316,
+      "timestamp_utc": "2026-09-30T22:41:33Z",
+      "completed_before_resume": 36
+    }
+  ]
+}

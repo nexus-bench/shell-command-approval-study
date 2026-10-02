@@ -1,0 +1,29 @@
+{
+  "arm": "autoshell-format-only",
+  "dataset_sha256": "aadfd43ec4b20cacaa4c47b0c17536e3eab63d1094f141f8fce8038b4f2c74ee",
+  "fingerprint": {
+    "inputs_sha256": "e702931137b9725c6d34b92834453270fa1cbf96e7a645cb85ad4f49e0a517bd",
+    "parser_sha256": "334475b5ebc6822b9c23759c227c2e81894043118b95700a2574165211b101c5",
+    "artifacts_manifest_sha256": "631e72a9cc639e9dc4b57f7295239ac33acfed26847237aa19ce46a32decdd49",
+    "declared_server_settings": {
+      "context": 4096,
+      "parallel": 1,
+      "threads": 4,
+      "gpu_layers": 0,
+      "port": 18765
+    },
+    "generation": {
+      "max_tokens": 1,
+      "temperature": 0,
+      "seed": 20260930,
+      "top_logprobs": 20,
+      "cache_prompt": false
+    },
+    "redacted": true
+  },
+  "count": 100,
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 0.001125037670135498,
+  "timestamp_utc": "2026-09-30T22:51:59Z"
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "repo": "kontext-security/ShellRisk-Bench",
+    "revision": "437467862139b4e9cdd5322024ef3434a67c7ec8",
+    "file": "README.md",
+    "url": "https://huggingface.co/datasets/kontext-security/ShellRisk-Bench/resolve/437467862139b4e9cdd5322024ef3434a67c7ec8/README.md",
+    "path": ".experiments/shell-safety/public/ShellRisk-Bench/README.md",
+    "bytes": 4765,
+    "sha256": "ae0cf43acc792a3acebe19545533d16aa4b6ffda266a008fa29b3bdc18ce0f66"
+  },
+  {
+    "repo": "kontext-security/ShellRisk-Bench",
+    "revision": "437467862139b4e9cdd5322024ef3434a67c7ec8",
+    "file": "data/test-00000-of-00001.parquet",
+    "url": "https://huggingface.co/datasets/kontext-security/ShellRisk-Bench/resolve/437467862139b4e9cdd5322024ef3434a67c7ec8/data/test-00000-of-00001.parquet",
+    "path": ".experiments/shell-safety/public/ShellRisk-Bench/data/test-00000-of-00001.parquet",
+    "bytes": 517879,
+    "sha256": "e9df3b50a716ad077eeab6fcc27be57834bc2ff3f28ebeaf48dfd6640e9064c8"
+  },
+  {
+    "repo": "tomngdev/shell-safety",
+    "revision": "155dbb5d3047dd095523bd8ee3dd65adf1296dde",
+    "file": "README.md",
+    "url": "https://huggingface.co/datasets/tomngdev/shell-safety/resolve/155dbb5d3047dd095523bd8ee3dd65adf1296dde/README.md",
+    "path": ".experiments/shell-safety/public/shell-safety/README.md",
+    "bytes": 439,
+    "sha256": "c5cfdfaa10a881083a4247734322da9fbc5988b81d4471b0dee4b0463eed6cf7"
+  },
+  {
+    "repo": "tomngdev/shell-safety",
+    "revision": "155dbb5d3047dd095523bd8ee3dd65adf1296dde",
+    "file": "lg/test.jsonl",
+    "url": "https://huggingface.co/datasets/tomngdev/shell-safety/resolve/155dbb5d3047dd095523bd8ee3dd65adf1296dde/lg/test.jsonl",
+    "path": ".experiments/shell-safety/public/shell-safety/lg/test.jsonl",
+    "bytes": 402245,
+    "sha256": "882e8c9b1257c04f66fcea83fc13201dce0a3ecda26d8b748cc05c03818a57b9"
+  },
+  {
+    "repo": "tomngdev/shell-safety-transcripts",
+    "revision": "e8b46e9821d9bc7957466154453d88c59a76eb53",
+    "file": "README.md",
+    "url": "https://huggingface.co/datasets/tomngdev/shell-safety-transcripts/resolve/e8b46e9821d9bc7957466154453d88c59a76eb53/README.md",
+    "path": ".experiments/shell-safety/public/shell-safety-transcripts/README.md",
+    "bytes": 610,
+    "sha256": "bb270639464181dc6beadee06010a9b5e9e36c683522aa61bcbdc5789404a6ae"
+  },
+  {
+    "repo": "tomngdev/shell-safety-transcripts",
+    "revision": "e8b46e9821d9bc7957466154453d88c59a76eb53",
+    "file": "lg/test.jsonl",
+    "url": "https://huggingface.co/datasets/tomngdev/shell-safety-transcripts/resolve/e8b46e9821d9bc7957466154453d88c59a76eb53/lg/test.jsonl",
+    "path": ".experiments/shell-safety/public/shell-safety-transcripts/lg/test.jsonl",
+    "bytes": 1070286,
+    "sha256": "dee763d6829b6bcf13d402f38f31b1ec349f4c1b1238ffd4f153f525ceb4ce63"
+  }
+]

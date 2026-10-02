@@ -1,0 +1,11 @@
+{
+  "model": "kestrel",
+  "dataset": "adversarial",
+  "dataset_sha256": "df4c6298b4082a7c1fd65b55961d1693b8598c5d70779895a3f7158035c72ceb",
+  "runner_sha256": "f77bdcae89b07a50acbf416a4e06fbcffae2b6ed67b982e4d105833f62636d70",
+  "python": "3.14.6",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "load_ms": 32.25387504789978,
+  "time_utc": "2026-10-01T01:19:47Z",
+  "count": 12
+}

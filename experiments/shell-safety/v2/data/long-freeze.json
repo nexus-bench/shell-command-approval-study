@@ -1,0 +1,5 @@
+{
+  "sha256": "1b18e92053ba97d0823e0d0fad02d84100b9cf0d1113fa4ad822b952d3005f5a",
+  "builder_sha256": "aba9d8123ef774fddc4fe74a97a45d55e440e51702323d842b40daafd0070eaa",
+  "note": "Byte offsets measured in actual serialized user input; prompt token counts are recorded by llama.cpp per request."
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "provider": "codex",
+    "event": "version",
+    "version": "codex-cli 0.157.1"
+  },
+  {
+    "provider": "codex",
+    "event": "account",
+    "type": "chatgpt"
+  },
+  {
+    "provider": "codex",
+    "event": "item/autoApprovalReview/started",
+    "review": {
+      "status": "inProgress",
+      "riskLevel": null,
+      "userAuthorization": null,
+      "rationale": null
+    }
+  },
+  {
+    "provider": "codex",
+    "event": "item/autoApprovalReview/completed",
+    "review": {
+      "status": "approved",
+      "riskLevel": "low",
+      "userAuthorization": "unknown",
+      "rationale": "Auto-review returned a low-risk allow decision."
+    }
+  },
+  {
+    "provider": "codex",
+    "event": "command.completed",
+    "command": "/bin/zsh -lc 'printf synthetic > native-smoke.txt'",
+    "status": "completed",
+    "exitCode": 0
+  },
+  {
+    "provider": "codex",
+    "event": "result",
+    "status": "completed",
+    "error": null
+  },
+  {
+    "provider": "codex",
+    "event": "fixture",
+    "markerWritten": true,
+    "elapsedMs": 12201
+  },
+  {
+    "provider": "claude",
+    "event": "version",
+    "sdk": "0.3.283",
+    "model": "opus"
+  },
+  {
+    "provider": "claude",
+    "event": "pretool",
+    "command": "printf synthetic > native-smoke.txt",
+    "exact": true
+  },
+  {
+    "provider": "claude",
+    "event": "result",
+    "subtype": "success",
+    "is_error": false
+  },
+  {
+    "provider": "claude",
+    "event": "fixture",
+    "markerWritten": true,
+    "elapsedMs": 10444
+  }
+]
