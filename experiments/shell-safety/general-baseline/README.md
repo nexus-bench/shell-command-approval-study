@@ -1,0 +1,25 @@
+# Qwen3.5 local baseline
+
+This [supplement](PROTOCOL.md) tests a general-purpose local model on the same 72 authored repository cases as the main study. It was added after the original results were inspected, so it is not a new blind benchmark. The candidate commands were passed as text; none were executed.
+
+## Setup
+
+- Model: [Qwen3.5-4B Q4_K_M GGUF](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF), revision `e87f176479d0855a907a41277aca2f8ee7a09523`, SHA-256 `00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4`. Weights are downloaded locally and are not committed.
+- Runtime: existing llama.cpp Metal build, version `4 (3a5b16d)`, on an Apple M1 Pro with 16 GB memory. Server settings: 4096 context, one slot, four CPU threads, 99 GPU layers, Jinja chat template, no warmup. The request used temperature 0, seed 20260930, non-thinking chat template setting, and a grammar constrained to `allow`, `deny`, or `ask`.
+- Input: the command, the user's task, and the saved `full` repository evidence. The v2 research policy was adapted to three output labels. No expected label or author-written effect summary was included.
+
+The [runner](run.py), [scorer](score.py), [per-case development outputs](results/dev.jsonl), [per-case test outputs](results/test.jsonl), and [summary](results/summary.json) are saved here. The protocol and runner were committed before inference. All 72 responses had valid labels and stopped normally.
+
+## Results
+
+Approvals mean Qwen answered `allow`. Each test label has 12 cases.
+
+| Expected label | Approved | Asked | Denied |
+| --- | ---: | ---: | ---: |
+| Allow | 4 | 8 | 0 |
+| Deny | 2 | 10 | 0 |
+| Ask | 6 | 6 | 0 |
+
+The model agreed with the exact expected label on **10/36** test cases. It never answered `deny`, even on the 12 cases with an observed conflict. Its `ask` answer would still stop automatic execution, but it does not distinguish a known conflict from missing information. On the development cases, it approved **12/14 allow**, **4/10 deny**, and **6/12 ask** cases. The median end-to-end response time was **1.99 seconds** on the test cases, excluding model loading and evidence collection.
+
+The result describes this 4-bit model, prompt, grammar, saved evidence, and Metal runtime. Qwen is larger than AutoShell and the original AutoShell run used CPU inference. The counts can be placed beside AutoShell's approval counts; the speed figures are not a controlled comparison. The cases were generated and labeled with GPT-6 Astra and lack independent human adjudication, so the numbers do not estimate real-world failure rates.

@@ -10,6 +10,7 @@ This is the entry point for the public study behind [the article](blog/POST.md).
 | [Native Codex and Claude test](extension/NATIVE-FULL.md) | One run per provider on the same cases, measuring agent choice and command approval together. |
 | [Public test sets](extension/README.md) | Samples from ShellRisk-Bench and Shell Safety. |
 | [Additional small models](additional/README.md) | ModernBERT, Kestrel, and secguard results. |
+| [Qwen3.5 local baseline](general-baseline/README.md) | A later general-purpose 4B model test on the saved repository cases. |
 | [Original study](README.md) | The earlier 64-case version and its corrections. |
 | [Secguard recheck](additional/SECGUARD-RECHECK.md) | Pinned artifact and closer runtime replay; original decisions unchanged. |
 | [Open follow-ups](FOLLOW-UPS.md) | Native secguard guard, Node rerun, and independent label review still needed. |

@@ -1,0 +1,81 @@
+{
+  "model": "unsloth/Qwen3.5-4B-GGUF/Qwen3.5-4B-Q4_K_M.gguf",
+  "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+  "model_sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+  "llama_cpp_version": "4 (3a5b16d)",
+  "server": "llama-server --host 127.0.0.1 --port 18766 -c 4096 -np 1 -t 4 -ngl 99 --jinja --no-warmup",
+  "dev": {
+    "input_sha256": "344e89bb1278f0c4d4f9a09181e52f728587dd39d83c2c463256b7ba7935b47c",
+    "total": 36,
+    "exact_agreement": 18,
+    "errors": 0,
+    "by_expected": {
+      "allow": {
+        "total": 14,
+        "predicted": {
+          "allow": 12,
+          "deny": 0,
+          "ask": 2
+        },
+        "errors": 0
+      },
+      "deny": {
+        "total": 10,
+        "predicted": {
+          "allow": 4,
+          "deny": 0,
+          "ask": 6
+        },
+        "errors": 0
+      },
+      "ask": {
+        "total": 12,
+        "predicted": {
+          "allow": 6,
+          "deny": 0,
+          "ask": 6
+        },
+        "errors": 0
+      }
+    },
+    "p50_ms": 1996.5835,
+    "p95_ms": 2239.12
+  },
+  "test": {
+    "input_sha256": "8b605fe259addc0432fcc66844dc77eee400df70af2446bf6f637ca215a5b19c",
+    "total": 36,
+    "exact_agreement": 10,
+    "errors": 0,
+    "by_expected": {
+      "allow": {
+        "total": 12,
+        "predicted": {
+          "allow": 4,
+          "deny": 0,
+          "ask": 8
+        },
+        "errors": 0
+      },
+      "deny": {
+        "total": 12,
+        "predicted": {
+          "allow": 2,
+          "deny": 0,
+          "ask": 10
+        },
+        "errors": 0
+      },
+      "ask": {
+        "total": 12,
+        "predicted": {
+          "allow": 6,
+          "deny": 0,
+          "ask": 6
+        },
+        "errors": 0
+      }
+    },
+    "p50_ms": 1990.625,
+    "p95_ms": 2318.79
+  }
+}
