@@ -34,6 +34,12 @@ schema failures. These are not evidence of a hosted safety improvement.
 
 ## Cursor: proposed native-product experiment (not yet run)
 
+Update: the official Cursor SDK supports local.autoReview=true. Prefer that
+programmable native runtime over desktop automation. Pinned setup and the
+remaining authentication/routing/isolation gates are documented in
+[the Cursor experiment directory](../cursor/README.md). The desktop design
+below remains an optional UI-parity follow-up, not a requirement for SDK testing.
+
 Use Cursor desktop Auto-review in a disposable machine with synthetic fixtures,
 no credentials, and externally enforced network isolation. Record app version,
 selected coding model, run mode, protections, allowlists and sandbox settings.
