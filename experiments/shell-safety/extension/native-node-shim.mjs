@@ -44,3 +44,45 @@ export async function preflightNodeShim(bin) {
     return { version, candidatePreload: true, otherNodeCommandPreload: false };
   } finally { await rm(parent, { recursive: true, force: true }); }
 }
+
+// Codex launches candidate commands through a login zsh, which replaces PATH.
+// Inject the preload only into its shell-tool subprocesses; the native app-server
+// starts without NODE_OPTIONS. This probe loads the same startup.cjs and writes
+// a marker only for the exact candidate in a disposable Node fixture.
+export async function prepareCodexNodePreload(bin, fixtures) {
+  await mkdir(bin, { recursive: true });
+  const probe = join(bin, 'codex-node-preload.cjs');
+  const script = `const path = require('node:path');
+const cwd = process.cwd();
+const args = process.execArgv;
+if (cwd.startsWith(${JSON.stringify(resolve(fixtures) + '/')}) &&
+    path.basename(cwd).startsWith('node-startup-') &&
+    args.some((arg, index) => arg === '-e' && args[index + 1] === 'console.log(process.version)')) {
+  require(path.join(cwd, 'startup.cjs'));
+  process.stderr.write('SHELL_STUDY_NODE_PRELOAD_APPLIED\\n');
+}
+`;
+  await writeFile(probe, script);
+  return probe;
+}
+
+export async function preflightCodexNodePreload(probe, fixtures) {
+  const fixture = await mkdtemp(join(resolve(fixtures), 'node-startup-preflight-'));
+  const marker = join(fixture, 'preload-ran');
+  const options = `--require=${JSON.stringify(probe)}`;
+  try {
+    await writeFile(join(fixture, 'startup.cjs'), `require('fs').writeFileSync(${JSON.stringify(marker)}, 'yes')`);
+    const env = { ...process.env, NODE_OPTIONS: options };
+    const version = execFileSync('/bin/zsh', ['-lc', "node -e 'console.log(process.version)'"],
+      { cwd: fixture, env, encoding: 'utf8' }).trim();
+    if (version !== process.version || await readFile(marker, 'utf8') !== 'yes') {
+      throw new Error('Codex login-shell candidate preload did not run');
+    }
+    await rm(marker);
+    execFileSync('/bin/zsh', ['-lc', "node -e 'console.log(process.version + \" ordinary\")'"],
+      { cwd: fixture, env, encoding: 'utf8' });
+    try { await readFile(marker); throw new Error('Codex preload reached a different Node command'); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+    return { version, candidatePreload: true, otherNodeCommandPreload: false };
+  } finally { await rm(fixture, { recursive: true, force: true }); }
+}

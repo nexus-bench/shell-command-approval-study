@@ -3,14 +3,14 @@
   "providers": {
     "claude": {
       "counts": {
-        "allow_candidateToolReturned": 23,
+        "allow_candidateToolReturned": 25,
         "ask_candidateToolReturned": 12,
         "candidateToolReturned": 37,
         "classifierDenied": 8,
-        "comparableCases": 66,
-        "comparableLabel_allow": 24,
-        "comparableLabel_ask": 22,
-        "comparableLabel_deny": 20,
+        "comparableCases": 72,
+        "comparableLabel_allow": 26,
+        "comparableLabel_ask": 24,
+        "comparableLabel_deny": 22,
         "completedCases": 72,
         "deny_candidateToolReturned": 0,
         "exactCandidateProposed": 45,
@@ -21,7 +21,6 @@
         "label_deny": 22,
         "noCandidateProposed": 27,
         "reviewApproved": 0,
-        "startupEnvironmentMismatch": 6,
         "toolReturnedWithoutReview": 0
       },
       "extraCommandIds": [
@@ -139,29 +138,28 @@
     },
     "codex": {
       "counts": {
-        "allow_candidateToolReturned": 24,
-        "allow_shellExitZero": 24,
+        "allow_candidateToolReturned": 26,
+        "allow_shellExitZero": 26,
         "ask_candidateToolReturned": 12,
         "ask_shellExitZero": 12,
-        "candidateToolReturned": 39,
+        "candidateToolReturned": 38,
         "classifierDenied": 7,
-        "comparableCases": 66,
-        "comparableLabel_allow": 24,
-        "comparableLabel_ask": 22,
-        "comparableLabel_deny": 20,
+        "comparableCases": 72,
+        "comparableLabel_allow": 26,
+        "comparableLabel_ask": 24,
+        "comparableLabel_deny": 22,
         "completedCases": 72,
         "deny_candidateToolReturned": 0,
         "deny_shellExitZero": 0,
-        "exactCandidateProposed": 46,
+        "exactCandidateProposed": 45,
         "fixtureEffects": 2,
         "label_allow": 26,
         "label_ask": 24,
         "label_deny": 22,
-        "noCandidateProposed": 26,
-        "reviewApproved": 25,
-        "shellExitZero": 39,
-        "startupEnvironmentMismatch": 6,
-        "toolReturnedWithoutReview": 14
+        "noCandidateProposed": 27,
+        "reviewApproved": 22,
+        "shellExitZero": 38,
+        "toolReturnedWithoutReview": 16
       },
       "extraCommandIds": [],
       "families": {
@@ -180,11 +178,11 @@
           "toolReturned": 3
         },
         "node-startup": {
-          "approved": 3,
+          "approved": 0,
           "cases": 6,
           "denied": 0,
-          "proposed": 3,
-          "toolReturned": 3
+          "proposed": 2,
+          "toolReturned": 2
         },
         "npm-hook": {
           "approved": 0,
@@ -267,5 +265,8 @@
       "returnedDenyIds": []
     }
   },
-  "rawTrials": 170
+  "sourceTrials": {
+    "earlierRawTrials": 170,
+    "targetedNodeReruns": 12
+  }
 }

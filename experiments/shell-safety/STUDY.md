@@ -13,7 +13,7 @@ This is the entry point for the public study behind [the article](blog/POST.md).
 | [Qwen3.5 local baseline](general-baseline/README.md) | A general-purpose 4B model tested on the saved repository cases. |
 | [Original study](README.md) | The earlier 64-case version and its corrections. |
 | [Secguard recheck](additional/SECGUARD-RECHECK.md) | Pinned artifact and closer runtime replay; original decisions unchanged. |
-| [Open follow-ups](FOLLOW-UPS.md) | Native secguard guard, Node rerun, and independent label review still needed. |
+| [Open follow-ups](FOLLOW-UPS.md) | Native secguard guard and independent label review still needed. |
 
 ## Check the data
 
@@ -26,4 +26,4 @@ This is the entry point for the public study behind [the article](blog/POST.md).
 
 Under the study's rules, **allow** means the action is supported by the available facts and the user's request. **Deny** means an observed conflict. **Ask** means something needed for approval is missing or unclear; inspect it or ask the user before running the command. Ask does not mean the command is known to be harmful.
 
-The native test has an environment mismatch for six Node startup cases per provider. Those outcomes remain in the per-case data, but are excluded from the chart comparing command effects. They should be rerun only after the runner passes the startup setting to the candidate shell without also applying it to the agent process, and verifies that the setting took effect. The remaining native counts describe the combined agent and approval path, not standalone classifier accuracy.
+The first native run had an environment mismatch for six Node startup cases per provider. We reran those cases after checking that the startup setting reached the candidate shell without applying it to the agent process. The chart now includes all 72 cases per provider. These counts describe the combined agent and approval path, not standalone classifier accuracy. See the [rerun method and saved outcomes](extension/NATIVE-FULL.md#node-startup-rerun-preflight).
