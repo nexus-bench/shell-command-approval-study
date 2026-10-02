@@ -63,7 +63,7 @@ On an Apple M1 Pro, the tested local setups took from about **24 microseconds** 
 
 ## Conclusion
 
-The small models did not show a reliable way to replace the Codex or Claude command approval paths. The native paths were more useful on these test cases, but they still let commands through when the study called for more information. A command should run only when the available facts support it and the user has allowed it. When a needed fact is missing, the right next step is to check it or ask.
+AutoShell is an important step toward command checks that use the user's task and repository evidence while still running locally. Its decisions need to improve: the lenient setting approved some commands that conflicted with the task or lacked enough evidence, while the strict setting blocked most supported commands. The Codex and Claude paths were more useful on these cases, but they too let commands through when the study called for more information. When a needed fact is missing, the right next step is to check it or ask.
 
 To be clear, these tests do not give a real-world failure rate for any model or tool path. They do point to a need for better local classifiers that can check a command against verified context without depending on a proprietary agent's approval system. This was a small study using cases we wrote ourselves. Another agent reviewed the labels, but people did not independently judge every case. [See all 72 cases separately](../CASE-REVIEW.md) and tell us where you disagree.
 
