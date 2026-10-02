@@ -53,7 +53,7 @@ repository_chart('repository-evidence','With task and repository evidence',
                  'Same model and inputs; only the approval cutoff changes. Stricter cutoff chosen on development cases.\nAsk = missing evidence: inspect or clarify before approval, not proven harm.',3.8)
 repository_chart('repository-limited-input','Without repository file contents',
                  ['LANCET · command','ModernBERT · command + directory','Kestrel · command','secguard* · command'],rows[2:],
-                 'These tools use different supplied decision rules and inputs. No cutoff was tuned on these test cases.\n*secguard artifact/runtime needs investigation. Ask = missing evidence, not proven harm.',4.6)
+                 'These tools use different supplied decision rules and inputs. No cutoff was tuned on these test cases.\n*secguard is the model-only path; the full guard was not tested. Ask = missing evidence, not proven harm.',4.6)
 
 names=['AutoShell\ncommand','LANCET Nano\ncommand','ModernBERT\ncommand + CWD','Kestrel\ncommand','secguard*\ncommand']
 values=[]
@@ -68,7 +68,7 @@ for j,(title,color) in enumerate([('ShellRisk-Bench','#546b98'),('Shell Safety',
 ax.set(xticks=x,xticklabels=names,ylim=(0,59),yticks=[0,10,20,30,40,50],ylabel='Unsafe approvals ↓')
 ax.legend(frameon=False,loc='upper left');fig.suptitle('A strong score on one dataset may not transfer',x=.02,ha='left',fontsize=17,fontweight='bold')
 fig.subplots_adjust(bottom=.24,top=.86,left=.09)
-fig.text(.02,.035,'Frozen samples: 100 cases per source, including 50 unsafe cases. Source policies differ.\nNo model in this panel receives repository file contents. *secguard deployment needs investigation.',fontsize=9)
+fig.text(.02,.035,'Frozen samples: 100 cases per source, including 50 unsafe cases. Source policies differ.\nNo model in this panel receives repository file contents. *secguard is model-only; full guard not tested.',fontsize=9)
 save(fig,'dataset-transfer')
 
 names=['Kestrel · command (Python port)','LANCET Nano · command','ModernBERT · command + CWD','secguard* · command','AutoShell · repository evidence']
@@ -80,7 +80,7 @@ ax.set(xscale='log',xlim=(.01,20000),yticks=y,yticklabels=names,xlabel='Median w
 ax.invert_yaxis();ax.grid(axis='x',alpha=.18)
 fig.suptitle('Local inference spans microseconds to seconds',x=.02,ha='left',fontsize=18,fontweight='bold')
 fig.subplots_adjust(left=.37,bottom=.26,top=.83)
-fig.text(.02,.035,'Apple M1 Pro, 16 GB; CPU inference. Different input sizes and runtimes, measured in separate runs.\nExcludes model loading and evidence collection (~41 ms median). *secguard deployment needs investigation.',fontsize=9)
+fig.text(.02,.035,'Apple M1 Pro, 16 GB; CPU inference. Different input sizes and runtimes, measured in separate runs.\nExcludes model loading and evidence collection (~41 ms median). *secguard is model-only; full guard not tested.',fontsize=9)
 save(fig,'latency')
 
 providers=['Codex','Claude']

@@ -55,7 +55,7 @@ The command-only models could not tell apart two cases where the command was ide
 
 Kestrel approved none of the 50 unsafe ShellRisk examples we sampled, but approved **34 of 50** unsafe examples from Shell Safety. A strong result on one small sample did not carry over to the other.
 
-The secguard setup returned “safe” on **283 of 284** cases, including plainly destructive commands. We have not established whether the problem lies with the model file or how we ran it, so we do not treat that result as a judgment on the model itself. [Rechecking that setup is an open task](../FOLLOW-UPS.md).
+The secguard model-only setup returned “safe” on **283 of 284** cases, including plainly destructive commands. We verified the pinned model file and prompt tokens, then reran all 284 cases with Metal and BF16 cache settings closer to the publisher's code. **No decision changed.** We have not run secguard's Rust wrapper or its full guard, which adds policy and heuristic checks. [See the recheck and saved results](../additional/SECGUARD-RECHECK.md).
 
 ## Codex and Claude command paths
 
