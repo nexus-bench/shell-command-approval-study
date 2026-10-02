@@ -89,4 +89,4 @@ An ask label does not mean the underlying command is harmful.
 
 The [label review notes](v2/LABEL-REVIEW.md) record six changes made before model inference.
 If you disagree with a label, please include the case ID, your label, and the visible fact
-that supports it when you [send feedback](https://github.com/apucher/shell-command-approval-study/issues/new).
+that supports it when you [send feedback](https://github.com/nexus-bench/shell-command-approval-study/issues/new).
