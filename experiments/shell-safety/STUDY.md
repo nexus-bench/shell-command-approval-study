@@ -1,6 +1,6 @@
 # Shell command approval study
 
-This is the entry point for the public study behind [the article](blog/POST.md). It includes the test cases, model outputs, methods, and code used to make the figures. The work is exploratory: its small, hand-built cases cannot establish a real-world failure rate.
+This is the entry point for the public study behind [the article](blog/POST.md). It includes the test cases, model outputs, methods, and code used to make the figures. GPT-6 Astra generated and labeled the small set of repository cases; they cannot establish a real-world failure rate.
 
 ## Read the results
 
@@ -21,7 +21,7 @@ This is the entry point for the public study behind [the article](blog/POST.md).
 - [Public test-set summary](extension/results/local-summary.json) and [additional model summary](additional/results/summary.json)
 - [Figure code](blog/render.py) and [editable figures](blog/figures/)
 - [Research approval rules](v2/POLICY.md), [label review](v2/LABEL-REVIEW.md), and [how to reproduce the repository test](v2/README.md#reproduce)
-- [All 72 cases for human review](CASE-REVIEW.md)
+- [All 72 case records](v2/data/cases.jsonl) for independent review against the [approval rules](v2/POLICY.md)
 
 Under the study's rules, **allow** means the action is supported by the available facts and the user's request. **Deny** means an observed conflict. **Ask** means something needed for approval is missing or unclear; inspect it or ask the user before running the command. Ask does not mean the command is known to be harmful.
 

@@ -23,6 +23,7 @@ that favorable public-data or summarized-context results do not resolve.
   Development uses six families in web/Python templates; testing uses six different
   families in nested-package/docs templates. Templates differ mainly in scaffolding;
   they are not independently sourced production repositories.
+  GPT-6 Astra generated and labeled these cases.
 - The main input contains actual file bytes, content hashes, symlink metadata, Git
   status/diffs and host receipts. It contains no author-written effect summary.
   The separately scored oracle arms retain such summaries to measure that shortcut.
