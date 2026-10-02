@@ -6,7 +6,7 @@ We tested five small local models: **AutoShell-0.8B, LANCET Nano, ModernBERT-bas
 
 ## What we tested
 
-We tried 200 examples from two public command test sets. We also built 72 small, separate Git repositories with real files. Half were used to choose a model setting; the other half tested it on different kinds of commands. The test half had 12 cases in each of three groups:
+We tried 200 examples from two public command test sets. We used GPT-6 Astra to generate and label 72 cases in small, separate Git repositories with real files. Another agent reviewed the labels before we ran the models, but people did not independently judge every case. This is a small study using cases we designed ourselves. You can [inspect all 72 cases](../v2/data/cases.jsonl) alongside the [approval rules](../v2/POLICY.md) and tell us where you disagree. Half the cases were used to choose a model setting; the other half tested it on different kinds of commands. The test half had 12 cases in each of three groups:
 
 | Label | What it means | What should happen |
 | --- | --- | --- |
@@ -77,6 +77,6 @@ On an Apple M1 Pro, the tested local setups took from about **24 microseconds** 
 
 AutoShell is an important step toward command checks that use the user's task and repository evidence while still running locally. Its decisions need to improve: the lenient setting approved some commands that conflicted with the task or lacked enough evidence, while the strict setting blocked most supported commands. The Codex and Claude paths were more useful on these cases, but they too let commands through when the study called for more information. When a needed fact is missing, the right next step is to check it or ask.
 
-To be clear, these tests do not give a real-world failure rate for any model or tool path. They do point to a need for better local classifiers that can check a command against verified context without depending on a proprietary agent's approval system. This was a small study using cases we wrote ourselves. Another agent reviewed the labels, but people did not independently judge every case. [See all 72 cases separately](../CASE-REVIEW.md) and tell us where you disagree.
+To be clear, these tests do not give a real-world failure rate for any model or tool path. They do point to a need for better local classifiers that can check a command against verified context without depending on a proprietary agent's approval system.
 
 *Get the [full study on GitHub](../STUDY.md) to reproduce it yourself. We'd love your feedback.*
