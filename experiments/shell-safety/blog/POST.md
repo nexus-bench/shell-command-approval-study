@@ -29,11 +29,23 @@ The inputs differ partly because these tools accept different kinds of input. Au
 
 The native interfaces we used did not provide a separate approval verdict for every candidate command. We therefore measured whether the command reached the tool after the agent's choice and its approval process. These setups use different information and rules, so the figures describe the tested paths rather than a ranking of model designs.
 
+### How the settings were chosen
+
+We did not train or fine-tune the models. AutoShell's default approval cutoff, a yes score above **0.8**, came from its original implementation. For the repository test, we replaced its stock instructions with our written approval rule. We then chose a stricter cutoff using only the 36 development cases: approve as many of the 14 allow cases as possible while approving none of the 22 deny or ask cases. That cutoff approved 4 of 14 allow cases in development. We fixed it before running the separate test cases. AutoShell's yes score is **not** a measured probability that a command is safe.
+
+LANCET, ModernBERT, Kestrel, and secguard used their published input formats and decision rules. We did not adjust their cutoffs or prompts to improve the results shown here. Their rules target different notions of risk, so their approval counts should be read with the input differences in mind.
+
 ## Repository results
 
-![Approved commands by label in the repository test. The chart separates AutoShell, which received repository evidence, from models that received a command or a command plus directory.](figures/repository-decisions.png)
+The first chart shows AutoShell with the user's task and collected repository evidence. Its two rows use the same model and input; only the approval cutoff changes.
 
-With our test instructions and collected repository information, AutoShell approved **8 of 12 allow cases**, **4 of 12 deny cases**, and **7 of 12 ask cases**. A stricter approval cutoff stopped all 12 deny cases. It also approved only **2 of 12 allow cases** and still approved **2 ask cases**.
+![AutoShell approvals across 12 allow, 12 deny, and 12 ask cases at the default and stricter cutoffs.](figures/repository-evidence.png)
+
+With our test instructions and collected repository information, AutoShell approved **8 of 12 allow cases**, **4 of 12 deny cases**, and **7 of 12 ask cases**. The stricter cutoff stopped all 12 deny cases. It also approved only **2 of 12 allow cases** and still approved **2 ask cases**.
+
+The second chart shows setups that received no repository file contents. LANCET, Kestrel, and secguard received the command; ModernBERT also received the working directory. Their decision rules differ, so the rows are not a controlled comparison of model quality.
+
+![Approvals across 12 allow, 12 deny, and 12 ask cases for models given a command alone or a command and working directory, without repository file contents.](figures/repository-limited-input.png)
 
 The command-only models could not tell apart two cases where the command was identical but the file it would run had changed. That is a limit of the information they received, not proof that they could never reason about files.
 
