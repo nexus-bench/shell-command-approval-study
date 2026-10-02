@@ -74,7 +74,7 @@ We extended the experiment to run secguard's native model wrapper and full guard
 
 The full guard's policy and heuristic layers did change results on the public sample. It returned safe on **49 of 50 unsafe ShellRisk examples** and **42 of 50 unsafe Shell Safety examples**, compared with 50 and 49 for the native model alone. It also flagged **7 of 100 safe-labeled public examples**. Both returned safe on all 120 repository and snapshot cases. A command-only guard still cannot distinguish an unchanged command pointing to a changed script.
 
-We verified that the full guard loaded its model and recorded which layer produced each verdict. These are classification results: secguard also returns separate block, warn or confirmation actions. The full-guard processes hit a Metal assertion during teardown after returning all decisions; the saved results mark those failures explicitly. No candidate commands were executed in these new replays.
+We verified that the full guard loaded its model and recorded which layer produced each verdict. These are classification results: secguard also returns separate block, warn or confirmation actions. No candidate commands were executed in these new replays.
 
 ## What changes when a reviewer can inspect evidence?
 
