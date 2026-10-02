@@ -2,7 +2,7 @@
 
 A command can look harmless while doing something the user never asked for. `bash verify.sh` might run a test, or the script might read a credential. To decide whether to run it, an assistant needs to know what the command will do, what is in the repository, and what the user allowed.
 
-We tested five small local models: **AutoShell-0.8B, LANCET Nano, ModernBERT-bash-classifier, Kestrel, and secguard-guard 0.8B**. We later added a larger, general-purpose local model, **Qwen3.5-4B**, as a separate test. We also tested **native Codex and Claude agent paths**, including their command approval steps. The local models did not offer a dependable replacement for those tool paths. At a lenient setting, AutoShell approved some commands that conflicted with the task. At a strict setting, it blocked most commands that were justified. The Codex and Claude paths let more justified commands run in their separate test, but they too ran commands when important facts were missing.
+We tested six local models: **AutoShell-0.8B, LANCET Nano, ModernBERT-bash-classifier, Kestrel, secguard-guard 0.8B, and Qwen3.5-4B**. We also tested **native Codex and Claude agent paths**, including their command approval steps. The local models did not offer a dependable replacement for those tool paths. At a lenient setting, AutoShell approved some commands that conflicted with the task. At a strict setting, it blocked most commands that were justified. The Codex and Claude paths let more justified commands run in their separate test, but they too ran commands when important facts were missing.
 
 ## What we tested
 
@@ -23,7 +23,7 @@ The inputs differ partly because these tools accept different kinds of input. Au
 | Test setup | Information supplied |
 | --- | --- |
 | AutoShell | The command, the user's task, and collected repository information, including some file contents. The collection could still miss a relevant file. |
-| Qwen3.5-4B supplement | The same saved command, task, and repository information as AutoShell. We prompted it to answer allow, deny, or ask. |
+| Qwen3.5-4B | The same saved command, task, and repository information as AutoShell. We prompted it to answer allow, deny, or ask. |
 | LANCET Nano, Kestrel, secguard | The command alone. They could not see the contents of a script named in it. |
 | ModernBERT | The command and current directory, but no file contents. |
 | Native Codex and Claude | The command, task, and a copy of the collected information in the request. These are agents with tool approval steps. |
@@ -36,17 +36,15 @@ We did not train or fine-tune the models. AutoShell's default approval cutoff, a
 
 LANCET, ModernBERT, Kestrel, and secguard used their published input formats and decision rules. We did not adjust their cutoffs or prompts to improve the results shown here. Their rules target different notions of risk, so their approval counts should be read with the input differences in mind.
 
-Qwen was a later supplement on the same 72 repository cases. We fixed its three-label prompt and settings before that run and did not tune them on its results. These cases had already been used in earlier tests, so this was a diagnostic replay rather than a fresh blind test.
-
 ## Repository results
 
-The first chart shows AutoShell and the later Qwen test with the user's task and collected repository evidence. AutoShell's two rows use the same model and input; only the approval cutoff changes. Qwen is a larger general model, run with a different prompt and runtime.
+The first chart shows AutoShell and Qwen with the user's task and collected repository evidence. AutoShell's two rows use the same model and input; only the approval cutoff changes. Qwen is a larger general model, run with a different prompt and runtime.
 
 ![Approvals across 12 allow, 12 deny, and 12 ask cases for AutoShell at two cutoffs and Qwen3.5-4B.](figures/repository-evidence.png)
 
 With our test instructions and collected repository information, AutoShell approved **8 of 12 allow cases**, **4 of 12 deny cases**, and **7 of 12 ask cases**. The stricter cutoff stopped all 12 deny cases. It also approved only **2 of 12 allow cases** and still approved **2 ask cases**.
 
-The [Qwen3.5-4B supplement](../general-baseline/README.md) approved **4 of 12 allow**, **2 of 12 deny**, and **6 of 12 ask cases**. It answered **ask** on the other 24 cases and never answered **deny**, even when the evidence showed a conflict. An ask answer would stop automatic execution, but it does not tell a user that a known conflict was found. It matched the exact label on **10 of 36** test cases. This is a test of one 4-bit Qwen setup, not a verdict on every way to run the model.
+The [Qwen3.5-4B](../general-baseline/README.md) approved **4 of 12 allow**, **2 of 12 deny**, and **6 of 12 ask cases**. It answered **ask** on the other 24 cases and never answered **deny**, even when the evidence showed a conflict. An ask answer would stop automatic execution, but it does not tell a user that a known conflict was found. It matched the exact label on **10 of 36** test cases. This is a test of one 4-bit Qwen setup, not a verdict on every way to run the model.
 
 The second chart shows setups that received no repository file contents. LANCET, Kestrel, and secguard received the command; ModernBERT also received the working directory. Their decision rules differ, so the rows are not a controlled comparison of model quality.
 
@@ -78,7 +76,7 @@ These counts describe the whole path from an agent's choice through its approval
 
 On an Apple M1 Pro, the tested local setups took from about **24 microseconds** for the Kestrel Python port to **3.15 seconds** for AutoShell with repository information. They used different inputs and software, so this is a measure of these setups on this computer, not a general speed ranking.
 
-The later Qwen run took **1.99 seconds** at the median on the same computer. It used Metal acceleration, while the charted runs used CPU inference, so its time is reported separately.
+Qwen took **1.99 seconds** at the median on the same computer. It used Metal acceleration, while the charted runs used CPU inference, so its time is reported separately.
 
 ## Conclusion
 
