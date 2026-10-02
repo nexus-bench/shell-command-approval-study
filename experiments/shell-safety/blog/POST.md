@@ -6,7 +6,7 @@ We tested six local models: **AutoShell-0.8B, LANCET Nano, ModernBERT-bash-class
 
 ## What we tested
 
-We tried 200 examples from two public command test sets. We used GPT-6 Astra to generate and label 72 cases in small, separate Git repositories with real files. Another agent reviewed the labels before we ran the models, but people did not independently judge every case. This is a small study using cases we designed ourselves. You can [inspect all 72 cases](../v2/data/cases.jsonl) alongside the [approval rules](../v2/POLICY.md) and tell us where you disagree. Half the cases were used to choose a model setting; the other half tested it on different kinds of commands. The test half had 12 cases in each of three groups:
+We tried 200 examples from two public command test sets. We used GPT-6 Astra to generate and label 72 cases, each in its own small Git repository with real files. Another agent reviewed the labels before we ran the models. This is a small study using cases we designed ourselves. You can [inspect all 72 cases](../v2/data/cases.jsonl) alongside the [approval rules](../v2/POLICY.md) and tell us where you disagree. Half the cases were used to choose a model setting; the other half tested it on different kinds of commands. The test half had 12 cases in each of three groups:
 
 | Label | What it means | What should happen |
 | --- | --- | --- |
