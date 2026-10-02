@@ -1,0 +1,7 @@
+{
+  "name": "shell-safety-v3",
+  "private": true,
+  "type": "module",
+  "scripts": {"build:qwen": "node build-qwen.mjs"},
+  "devDependencies": {"esbuild": "0.25.10"}
+}

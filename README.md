@@ -1,10 +1,10 @@
 # Shell command approval study
 
-This is a public copy of the study behind [“Can a small local model decide whether a shell command is safe?”](https://nexus-website.nexusbench.workers.dev/blog/shell-classifier/). It contains the test cases, saved results, methods, figures, and scripts. The cases use synthetic repositories and fake credentials.
+This is the reproducibility repository for the staging article [“Can a small local model decide whether a shell command is safe?”](https://nexus-website.nexusbench.workers.dev/blog/shell-classifier/). It contains the test cases, saved results, methods, figures, and scripts. The cases use synthetic repositories and fake credentials.
 
-Start with the [study index](experiments/shell-safety/STUDY.md). You can [inspect all 72 repository cases](experiments/shell-safety/v2/data/cases.jsonl) against the [approval rules](experiments/shell-safety/v2/POLICY.md). The [open follow-ups](experiments/shell-safety/FOLLOW-UPS.md) include a secguard guard verification and a corrected Node startup rerun.
+Start with the [study index](experiments/shell-safety/STUDY.md) and the [classifier/evidence extension](experiments/shell-safety/v3/README.md). The extension preserves the original 72 cases and adds 48 synthetic evidence conditions. You can inspect them against the [approval rules](experiments/shell-safety/v2/POLICY.md).
 
-The published counts describe these test setups. They do not estimate real-world failure rates. The six Node startup cases per native provider remain outside the effect comparison until the prepared rerun is completed and checked.
+The measured counts describe these test setups, not real-world failure rates. The six Node startup cases per native provider have been rerun and checked; the native chart includes all 72 cases per provider. Independent human label review remains open.
 
 The Python requirements are in the study directories. Local model files are downloaded separately using the documented artifact lists; they are not included here. Native Codex and Claude reruns require your own subscription sign-ins. The native scripts operate only on generated disposable fixtures. Review the scripts and use fake credentials before running them.
 

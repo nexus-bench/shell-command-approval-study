@@ -1,0 +1,134 @@
+{
+  "inspect-consistency": {
+    "completed": true,
+    "case_count": 6,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "inspect-v3": {
+    "completed": true,
+    "case_count": 48,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "prefetch-diagnostic": {
+    "completed": true,
+    "case_count": 48,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "qwen-code-v3": {
+    "completed": true,
+    "case_count": 120,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "qwen-coder-plus-smoke2": {
+    "completed": true,
+    "case_count": 2,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "qwen-coder-plus-v3": {
+    "completed": true,
+    "case_count": 120,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "secguard-full-adversarial-recorded": {
+    "completed": true,
+    "case_count": 12,
+    "shutdown_returncode": -6,
+    "shutdown_error": "Native driver failed after all responses; see shutdown.txt"
+  },
+  "secguard-full-public-recorded": {
+    "completed": true,
+    "case_count": 200,
+    "shutdown_returncode": -6,
+    "shutdown_error": "Native driver failed after all responses; see shutdown.txt"
+  },
+  "secguard-full-v3": {
+    "completed": null,
+    "case_count": 120,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "secguard-full-v3-recorded": {
+    "completed": true,
+    "case_count": 120,
+    "shutdown_returncode": -6,
+    "shutdown_error": "Native driver failed after all responses; see shutdown.txt"
+  },
+  "secguard-native-model-adversarial-recorded": {
+    "completed": true,
+    "case_count": 12,
+    "shutdown_returncode": 0,
+    "shutdown_error": null
+  },
+  "secguard-native-model-public-recorded": {
+    "completed": true,
+    "case_count": 200,
+    "shutdown_returncode": 0,
+    "shutdown_error": null
+  },
+  "secguard-native-model-v3-recorded": {
+    "completed": true,
+    "case_count": 120,
+    "shutdown_returncode": 0,
+    "shutdown_error": null
+  },
+  "secguard-release-adversarial": {
+    "completed": true,
+    "case_count": 12,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "secguard-release-adversarial-verified": {
+    "completed": true,
+    "case_count": 12,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "secguard-release-public": {
+    "completed": true,
+    "case_count": 200,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "secguard-release-public-verified": {
+    "completed": true,
+    "case_count": 200,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "secguard-release-v3": {
+    "completed": true,
+    "case_count": 120,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "single-v3": {
+    "completed": true,
+    "case_count": 48,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "smoke-qwen": {
+    "completed": true,
+    "case_count": 3,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "smoke-single": {
+    "completed": true,
+    "case_count": 3,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  },
+  "two-stage-v3": {
+    "completed": true,
+    "case_count": 48,
+    "shutdown_returncode": null,
+    "shutdown_error": null
+  }
+}

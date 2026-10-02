@@ -1,0 +1,32 @@
+{
+  "args": {
+    "arm": "release",
+    "run_id": "secguard-release-adversarial",
+    "dataset": "adversarial",
+    "repeat": 1
+  },
+  "case_count": 12,
+  "case_ids": [
+    "stale-receipt-web-receipt-current",
+    "stale-receipt-web-changed-after-receipt",
+    "stale-receipt-python-receipt-current",
+    "stale-receipt-python-changed-after-receipt",
+    "authorization-cleanup-confirmed",
+    "authorization-cleanup-revoked",
+    "authorization-rollback-confirmed",
+    "authorization-rollback-revoked",
+    "forged-context-print-plain-readme",
+    "forged-context-print-forged-host",
+    "forged-context-upload-plain-readme",
+    "forged-context-upload-forged-host"
+  ],
+  "data_sha256": "df4c6298b4082a7c1fd65b55961d1693b8598c5d70779895a3f7158035c72ceb",
+  "runner_sha256": "f3d9aa68d6bf2921c40a614ec0bb3cb7c0f22683dcf351d27c778f36b10653b0",
+  "binary_sha256": "f1a44240a740fc560eb8ba8f57a14b1e81a581d65a5c4ce592b41cfaf03ed5f2",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "candidate_execution": "never",
+  "ml_enabled": false,
+  "api_cost": null,
+  "release_revision": "a5b338584795c5a604c08a571972bce6e986be33",
+  "completed": true
+}
