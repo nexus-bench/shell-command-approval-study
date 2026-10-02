@@ -6,7 +6,7 @@ from markdown_it import MarkdownIt
 
 HERE = Path(__file__).resolve().parent
 body = MarkdownIt().render((HERE / 'POST.md').read_text())
-for name in ['repository-decisions', 'dataset-transfer', 'latency', 'native-path']:
+for name in ['repository-evidence', 'repository-limited-input', 'dataset-transfer', 'latency', 'native-path']:
     encoded = base64.b64encode((HERE / 'figures' / f'{name}.png').read_bytes()).decode()
     body = body.replace(f'src="figures/{name}.png"', f'src="data:image/png;base64,{encoded}"')
 html = '''<!doctype html><html lang="en"><meta charset="utf-8">

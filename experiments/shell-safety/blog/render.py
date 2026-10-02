@@ -27,25 +27,33 @@ def save(fig,name):
     fig.savefig(out/f'{name}.png',dpi=180,bbox_inches='tight')
     plt.close(fig)
 
-labels = ['AutoShell · repo evidence · default','AutoShell · repo evidence · strict','LANCET · command only','ModernBERT · command + CWD','Kestrel · command only','secguard* · command only']
 rows = []
 for arm,point in [('app-full','default'),('app-full','selected'),('lancet','default')]:
     m=v2[arm][point]; rows.append([m[k] for k in ['legitimate_approvals','deny_approvals','unknown_approvals']])
 for name in ['modernbert','kestrel','secguard']:
     m=extra[f'{name}/allow/v2/test'];rows.append([m[k][0] for k in ['allow','deny','ask']])
-fig,ax=plt.subplots(figsize=(11,7));y=np.array([0,1,3,4,5,6])
-for j,title in enumerate(['Allow · supported action approved ↑','Deny · observed conflict approved ↓','Ask · insufficient evidence approved ↓']):
-    values=[r[j] for r in rows]
-    ax.barh(y+(j-1)*.23,values,height=.20,color=COLORS[j],label=title)
-    for i,value in enumerate(values):ax.text(value+.12,y[i]+(j-1)*.23,f'{value}/12',va='center',fontsize=9)
-ax.axhspan(1.65,6.45,color='#f2f5f8',zorder=-1)
-ax.axhline(1.65,color='#aab9c8',linewidth=1)
-ax.set(yticks=y,yticklabels=labels,xlim=(0,14),ylim=(6.55,-.7),xticks=[0,3,6,9,12],xlabel='Approvals out of 12 cases per label')
-ax.legend(loc='lower left',bbox_to_anchor=(-.42,1.02),ncol=1,frameon=False,fontsize=10)
-fig.suptitle('Approval outcomes depend on the evidence available',x=.02,ha='left',fontsize=18,fontweight='bold')
-fig.subplots_adjust(left=.40,top=.67,bottom=.24)
-fig.text(.02,.025,'36 synthetic v2 test cases. Ask means inspect or clarify before automatic approval; it does not mean proven harm.\nLANCET, Kestrel, secguard: command only. ModernBERT: command + working directory. Native policies differ.\n*secguard artifact/runtime needs investigation. Stricter threshold selected on development cases.',fontsize=9)
-save(fig,'repository-decisions')
+def repository_chart(name, title, labels, results, note, height):
+    fig,ax=plt.subplots(figsize=(10,height));y=np.arange(len(labels))
+    for j,heading in enumerate(['Allow approved ↑','Deny approved ↓','Ask approved ↓']):
+        values=[r[j] for r in results]
+        ax.barh(y+(j-1)*.22,values,height=.19,color=COLORS[j],label=heading)
+        for i,value in enumerate(values):
+            ax.text(max(value,.08)+.13,y[i]+(j-1)*.22,f'{value}/12',va='center',fontsize=9)
+    ax.set(yticks=y,yticklabels=labels,xlim=(0,13.6),ylim=(len(labels)-.45,-.65),
+           xticks=[0,3,6,9,12],xlabel='Approvals out of 12 cases per label')
+    ax.grid(axis='x',alpha=.15);ax.set_axisbelow(True)
+    ax.legend(loc='lower left',bbox_to_anchor=(0,1.01),ncol=3,frameon=False,fontsize=10)
+    fig.suptitle(title,x=.02,ha='left',fontsize=17,fontweight='bold')
+    fig.subplots_adjust(left=.31,right=.94,top=.75,bottom=.20)
+    fig.text(.02,.035,note,fontsize=9)
+    save(fig,name)
+
+repository_chart('repository-evidence','With task and repository evidence',
+                 ['AutoShell · default cutoff','AutoShell · stricter cutoff'],rows[:2],
+                 'Same model and inputs; only the approval cutoff changes. Stricter cutoff chosen on development cases.\nAsk = missing evidence: inspect or clarify before approval, not proven harm.',3.8)
+repository_chart('repository-limited-input','Without repository file contents',
+                 ['LANCET · command','ModernBERT · command + directory','Kestrel · command','secguard* · command'],rows[2:],
+                 'These tools use different supplied decision rules and inputs. No cutoff was tuned on these test cases.\n*secguard artifact/runtime needs investigation. Ask = missing evidence, not proven harm.',4.6)
 
 names=['AutoShell\ncommand','LANCET Nano\ncommand','ModernBERT\ncommand + CWD','Kestrel\ncommand','secguard*\ncommand']
 values=[]
@@ -90,7 +98,7 @@ fig.subplots_adjust(left=.07,right=.99,wspace=.20,top=.72,bottom=.29)
 fig.text(.02,.075,'72 cases per provider; 6 Node startup cases/provider excluded here because preload was absent from live tool environment.',fontsize=9)
 fig.text(.02,.035,'Ask means inspect or clarify first; a returned tool is not proof of harm. Claude has no separate positive verdict.',fontsize=9)
 save(fig,'native-path')
-print('Rendered four charts as SVG and PNG.')
+print('Rendered five charts as SVG and PNG.')
 
 # Refresh the standalone HTML with the saved chart images.
 import runpy
