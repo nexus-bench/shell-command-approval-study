@@ -1,0 +1,34 @@
+{
+  "revision": "a011f66944768e05b432a10548ffa4576f1d8ef8",
+  "sources": [
+    {
+      "path": "qwen-transport.mjs",
+      "sha256": "9faacf0978e9efd27b5e41c7582c91a8fb03be4a0a3628f3911cce4f2f75db6b"
+    },
+    {
+      "path": "../../../.experiments/upstream/qwen-code/packages/core/src/permissions/classifier-prompts/system-prompt.ts",
+      "sha256": "f58ba29f0155a053ea26dee9243fcc9e524e7187554ed760dc90c8ded8aee194"
+    },
+    {
+      "path": "../../../.experiments/upstream/qwen-code/packages/core/src/tools/tool-names.ts",
+      "sha256": "d44030b3025834c6123d733cbfd94982cdaafefe4fcf194e6664d4e95a04240b"
+    },
+    {
+      "path": "../../../.experiments/upstream/qwen-code/packages/core/src/permissions/classifier-transcript.ts",
+      "sha256": "190df5ba107653a2fa019d02ef0b28b1c517a45e113e9a5926765f969e054bb7"
+    },
+    {
+      "path": "../../../.experiments/upstream/qwen-code/packages/core/src/permissions/classifier.ts",
+      "sha256": "c45bb9d5f160a46ba1c828afb3337fe80a6410d1bbe72930b3d4a3a9e0aaf607"
+    },
+    {
+      "path": "qwen-entry.mjs",
+      "sha256": "00009524256a28ca11d8cb2500c56086854d113c15c5a9bc9ea616d21723ed51"
+    }
+  ],
+  "limitations": [
+    "Local JSON-schema transport replaces runSideQuery; no SDK retry parity claim.",
+    "No parent agent, allowlist, sandbox, or native permission manager.",
+    "Stock transcript: user request and pending command only; no file evidence promoted to user messages."
+  ]
+}

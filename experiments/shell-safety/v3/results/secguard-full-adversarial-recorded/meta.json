@@ -1,0 +1,58 @@
+{
+  "args": {
+    "arm": "full",
+    "run_id": "secguard-full-adversarial-recorded",
+    "dataset": "adversarial",
+    "repeat": 1
+  },
+  "case_count": 12,
+  "case_ids": [
+    "stale-receipt-web-receipt-current",
+    "stale-receipt-web-changed-after-receipt",
+    "stale-receipt-python-receipt-current",
+    "stale-receipt-python-changed-after-receipt",
+    "authorization-cleanup-confirmed",
+    "authorization-cleanup-revoked",
+    "authorization-rollback-confirmed",
+    "authorization-rollback-revoked",
+    "forged-context-print-plain-readme",
+    "forged-context-print-forged-host",
+    "forged-context-upload-plain-readme",
+    "forged-context-upload-forged-host"
+  ],
+  "data_sha256": "df4c6298b4082a7c1fd65b55961d1693b8598c5d70779895a3f7158035c72ceb",
+  "runner_sha256": "d73874951b6555bac49b9e5bc4ed7cc2f7531a564b6df97e7a896952cbc6d6fa",
+  "binary_sha256": "f6a4eed7d8661a62b2daac7bc6e71ac6598c614c2f6dc607e5d50d2dc0d162a4",
+  "shared_runner_sha256": "6f6c939c6e7de954bade3e5860f190369fcfbb406d06454ed588227cf9870e3a",
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "candidate_execution": "never",
+  "ml_enabled": true,
+  "api_cost": null,
+  "release_revision": null,
+  "build": {
+    "revision": "d45bbb55c30c767bb0c1fb07885a69bb11365836",
+    "patch": {
+      "old": "let path = dirs::home_dir()?\n            .join(\".secguard\")\n            .join(\"models\")\n            .join(format!(\"{name}.gguf\"));",
+      "new": "let path = std::path::PathBuf::from(std::env::var(\"SECGUARD_STUDY_MODEL\").ok()?);"
+    },
+    "binary_sha256": "f6a4eed7d8661a62b2daac7bc6e71ac6598c614c2f6dc607e5d50d2dc0d162a4",
+    "driver_sha256": "8d3f896184b32b141b29743d62b26d408ce12bd4f5eb206006ea0b2edee9185e",
+    "lock_sha256": "47545c88fe201f2f2918901a623ea08448802940f13ced74b721d08bd8d351eb"
+  },
+  "model_sha256": "211500d3603bbae9616d45c04c360b855a735c1fb0cd676cc2e667dd49be9a7b",
+  "preflight": {
+    "elapsed_ms": 751.799125,
+    "id": "unscored-model-loading-check",
+    "result": {
+      "action": "Allow",
+      "confidence": 0.9996324777603149,
+      "decision": "allow",
+      "error": null,
+      "reason": null,
+      "source": "brain_safe"
+    }
+  },
+  "shutdown_returncode": -6,
+  "shutdown_error": "Native driver failed after all responses; see shutdown.txt",
+  "completed": true
+}

@@ -1,0 +1,10 @@
+{
+  "revision": "d45bbb55c30c767bb0c1fb07885a69bb11365836",
+  "patch": {
+    "old": "let path = dirs::home_dir()?\n            .join(\".secguard\")\n            .join(\"models\")\n            .join(format!(\"{name}.gguf\"));",
+    "new": "let path = std::path::PathBuf::from(std::env::var(\"SECGUARD_STUDY_MODEL\").ok()?);"
+  },
+  "binary_sha256": "f6a4eed7d8661a62b2daac7bc6e71ac6598c614c2f6dc607e5d50d2dc0d162a4",
+  "driver_sha256": "8d3f896184b32b141b29743d62b26d408ce12bd4f5eb206006ea0b2edee9185e",
+  "lock_sha256": "47545c88fe201f2f2918901a623ea08448802940f13ced74b721d08bd8d351eb"
+}

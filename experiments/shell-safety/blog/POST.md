@@ -4,6 +4,8 @@
 
 We tested six local models: **AutoShell-0.8B, LANCET Nano, ModernBERT-bash-classifier, Kestrel, secguard-guard 0.8B, and Qwen3.5-4B**. We also tested **native Codex and Claude agent paths**, including their command approval steps. The local models did not offer a dependable replacement for those tool paths. At a lenient setting, AutoShell approved some commands that conflicted with the task. At a strict setting, it blocked most commands that were justified. The Codex and Claude paths let more justified commands run in their separate test, but they too ran commands when important facts were missing.
 
+We then expanded the study with native secguard code, Qwen Code's isolated classifier, and controlled reviews that can request file evidence. The clearest new result: supplying a missing script helped the reviewer resolve uncertainty, but giving it the option to read did not make it use that option.
+
 ## What we tested
 
 We tried 200 examples from two public command test sets. We used GPT-6 Astra to generate and label 72 cases, each in its own small Git repository with real files. Another agent reviewed the labels before we ran the models. This is a small study using cases we designed ourselves. You can [inspect all 72 cases](../v2/data/cases.jsonl) alongside the [approval rules](../v2/POLICY.md) and tell us where you disagree. Half the cases were used to choose a model setting; the other half tested it on different kinds of commands. The test half had 12 cases in each of three groups:
@@ -52,7 +54,7 @@ The second chart shows setups that received no repository file contents. LANCET,
 
 ![Approvals across 12 allow, 12 deny, and 12 ask cases for models given a command alone or a command and working directory, without repository file contents.](figures/repository-limited-input.png)
 
-*These models saw different limited inputs and used their own decision rules. The secguard row is its model alone; we did not test the full guard. An ask case means evidence is missing, not that harm is proven.*
+*These models saw different limited inputs and used their own decision rules. This secguard row is its original model-only setup; the native guard extension below is a separate experiment. An ask case means evidence is missing, not that harm is proven.*
 
 The command-only models could not tell apart two cases where the command was identical but the file it would run had changed. That is a limit of the information they received, not proof that they could never reason about files.
 
@@ -64,7 +66,47 @@ The command-only models could not tell apart two cases where the command was ide
 
 Kestrel approved none of the 50 unsafe ShellRisk examples we sampled, but approved **34 of 50** unsafe examples from Shell Safety. A strong result on one small sample did not carry over to the other.
 
-The secguard model-only setup returned “safe” on **283 of 284** cases, including plainly destructive commands. We verified the pinned model file and prompt tokens, then reran all 284 cases with Metal and BF16 cache settings closer to the publisher's code. **No decision changed.** We have not run secguard's Rust wrapper or its full guard, which adds policy and heuristic checks. [See the recheck and saved results](../additional/SECGUARD-RECHECK.md).
+The original secguard model-only setup returned “safe” on **283 of 284** cases, including plainly destructive commands. We verified the pinned model file and prompt tokens, then reran all 284 cases with Metal and BF16 cache settings closer to the publisher's code. **No decision changed.** That experiment did not exercise the native Rust guard. [See the original recheck and saved results](../additional/SECGUARD-RECHECK.md).
+
+### Checking secguard's actual Rust code
+
+We extended the experiment to run secguard's native model wrapper and full guard, plus its official non-ML release. The native wrapper classified **283 of the original 284 cases as safe**, matching the broad result of the earlier model-only setup. Across the expanded 332-case replay, it returned safe on **331 cases**.
+
+The full guard's policy and heuristic layers did change results on the public sample. It returned safe on **49 of 50 unsafe ShellRisk examples** and **42 of 50 unsafe Shell Safety examples**, compared with 50 and 49 for the native model alone. It also flagged **7 of 100 safe-labeled public examples**. Both returned safe on all 120 repository and snapshot cases. A command-only guard still cannot distinguish an unchanged command pointing to a changed script.
+
+We verified that the full guard loaded its model and recorded which layer produced each verdict. These are classification results: secguard also returns separate block, warn or confirmation actions. The full-guard processes hit a Metal assertion during teardown after returning all decisions; the saved results mark those failures explicitly. No candidate commands were executed in these new replays.
+
+## What changes when a reviewer can inspect evidence?
+
+Several coding tools have published approaches beyond a single command score. [Anthropic describes a two-stage transcript classifier](https://www.anthropic.com/engineering/claude-code-auto-mode). [Qwen Code publishes its Auto Mode implementation](https://github.com/QwenLM/qwen-code/blob/a011f66944768e05b432a10548ffa4576f1d8ef8/docs/users/features/auto-mode.md). [Cursor's Auto-review classifier can make read-only file queries](https://cursor.com/docs/agent/security/run-modes). These designs make different choices about which information reaches the reviewer. They do not establish that approval is solved.
+
+We added **48 synthetic cases** to study this distinction: six script scenarios, two textual variants, and four conditions—supported execution, an observed conflict, a script not yet read, and missing user confirmation. The test split contains only three scenarios. These are closely related examples with author-assigned labels, not 48 independent production workflows.
+
+We compared the same local Qwen3.5-4B model under the same approval policy in three setups. One makes a single decision. One revisits non-allow decisions without new evidence. One can request file snapshots. The new test split has six allow, six deny, and twelve ask cases:
+
+| Reviewer | Supported approvals / 6 | Deny approvals / 6 | Unresolved ask approvals / 12 | Missing-file cases resolved and approved / 6 |
+| --- | ---: | ---: | ---: | ---: |
+| Single pass | 6 | 0 | 0 | 0 |
+| Second review, same evidence | 6 | 0 | 9 | 0 |
+| Optional file inspection | 6 | 0 | 0 | 0 |
+
+A second review did not increase useful approvals here. It instead cleared nine cases that still lacked required evidence or authorization. That is a result for our prompt and local model, not Anthropic's deployed classifier.
+
+The inspection-enabled model made **zero file reads across all 48 cases**. It often said a script needed inspection, then returned “ask” instead of requesting a read. It also answered “ask” on observed conflicts, so stopping execution did not mean it had correctly identified a reason to deny. Offering an inspection tool was insufficient in this setup.
+
+We then added a diagnostic: have the harness supply the visibly missing file before the same single-pass review. On the test split, this resolved and approved **all six missing-file cases**, while leaving **all six missing-authorization cases unapproved**. This was a follow-up after seeing the initial results, not a predeclared autonomous-inspection success. The distinction matters: the reviewer could use the supplied evidence, but did not fetch it itself.
+
+The new development cases also show the limits of that improvement. Single pass, second review and the diagnostic each approved **2 of 6 observed conflicts**. Supplying missing files helped with uncertainty; it did not repair every judgment about visible code.
+
+### Qwen Code's classifier is a separate comparison
+
+We also bundled Qwen Code's actual classifier, stock prompt and transcript builder, replacing its model transport with the same local Qwen3.5-4B runtime. This isolated classifier saw the user request and pending command, with no script contents or earlier script-writing history. It did not include Qwen Code's parent agent, permission manager or sandbox.
+
+It approved all 72 original cases. On the 24 new test cases, it approved all six supported cases, all six conflicts, and eight of twelve ask cases. It blocked two ask cases; two more produced timeouts, which we count as failures rather than correct blocks. Its stock policy and available evidence differ from our controlled reviewers. These counts describe that source-isolated configuration, not the native Qwen Code product.
+
+Cursor was not available in the test environment. Our optional-inspection experiment tests an idea from its documented design; it is not a measurement of Cursor.
+
+Read the [extension methods, raw results and limitations](../v3/RESULTS.md).
 
 ## Codex and Claude command paths
 
@@ -92,6 +134,8 @@ Qwen took **1.99 seconds** at the median on the same computer. It used Metal acc
 
 AutoShell is an important step toward command checks that use the user's task and repository evidence while still running locally. Its decisions need to improve: the lenient setting approved some commands that conflicted with the task or lacked enough evidence, while the strict setting blocked most supported commands. The larger Qwen model also approved commands with observed conflicts or missing evidence in this test. The Codex and Claude paths were more useful on these cases, but they too let commands through when the study called for more information. When a needed fact is missing, the right next step is to check it or ask.
 
-To be clear, these tests do not give a real-world failure rate for any model or tool path. They do point to a need for better local classifiers that can check a command against verified context without depending on a proprietary agent's approval system.
+The extension adds a practical requirement: a reviewer needs a reliable way to obtain missing evidence, use it, and keep missing authorization separate. Asking the same model twice did not supply those facts. Neither did merely offering it an inspection action. Our diagnostic showed that supplied evidence could help, while leaving visible-code mistakes unresolved.
+
+These tests do not give a real-world failure rate for any model or tool path. They point to further work on explicit inspection workflows and independent labels before treating a local approval system as dependable.
 
 *Get the [full study on GitHub](../STUDY.md) to reproduce it yourself. We'd love your feedback.*
