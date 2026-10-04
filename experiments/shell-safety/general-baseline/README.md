@@ -23,3 +23,32 @@ Approvals mean Qwen answered `allow`. Each test label has 12 cases.
 The model agreed with the exact expected label on **10/36** test cases. It never answered `deny`, even on the 12 cases with an observed conflict. Its `ask` answer would still stop automatic execution, but it does not distinguish a known conflict from missing information. On the development cases, it approved **12/14 allow**, **4/10 deny**, and **6/12 ask** cases. The median end-to-end response time was **1.99 seconds** on the test cases, excluding model loading and evidence collection.
 
 The result describes this 4-bit model, prompt, grammar, saved evidence, and Metal runtime. Qwen is larger than AutoShell and the original AutoShell run used CPU inference. The counts can be placed beside AutoShell's approval counts; the speed figures are not a controlled comparison. The cases were generated and labeled with GPT-6 Astra and lack independent human adjudication, so the numbers do not estimate real-world failure rates.
+
+## Reproduce
+
+Run from the repository root in a separate checkout. The runner uses Python's standard library. Install a Metal-enabled llama.cpp build matching `3a5b16d` to reproduce the recorded runtime; other builds or hardware may change outputs and timing.
+
+Download the pinned model, then verify its SHA-256 against the value above before starting inference:
+
+```sh
+mkdir -p .experiments/shell-safety/general-baseline
+curl --fail --location --output .experiments/shell-safety/general-baseline/Qwen3.5-4B-Q4_K_M.gguf https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q4_K_M.gguf
+shasum -a 256 .experiments/shell-safety/general-baseline/Qwen3.5-4B-Q4_K_M.gguf
+```
+
+Start the server in one terminal. Port 18766 must be free; the secguard experiment also uses it.
+
+```sh
+llama-server -m .experiments/shell-safety/general-baseline/Qwen3.5-4B-Q4_K_M.gguf --host 127.0.0.1 --port 18766 -c 4096 -np 1 -t 4 -ngl 99 --jinja --no-warmup
+```
+
+In another terminal, archive the published results before running; the runner refuses to overwrite existing prediction files. Choose an unused archive directory if repeating this procedure.
+
+```sh
+mv experiments/shell-safety/general-baseline/results .experiments/shell-safety/general-baseline/published-results
+python3 experiments/shell-safety/general-baseline/run.py dev
+python3 experiments/shell-safety/general-baseline/run.py test
+python3 experiments/shell-safety/general-baseline/score.py
+```
+
+Compare the new summary with the archived one. These commands send candidate commands as text to the local model; they do not execute them.

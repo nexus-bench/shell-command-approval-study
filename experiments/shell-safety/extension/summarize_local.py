@@ -26,9 +26,12 @@ def metrics(rows):
 
 def summarize():
     out = {}
-    for path in sorted((HERE/'results').glob('*.jsonl')):
-        if path.name.startswith('public-format-dev'):
-            continue
+    # Native-agent traces share this directory but have a different schema.
+    names = [f'{corpus}-{arm}' for corpus in ('public', 'synthetic')
+             for arm in ('lancet', 'autoshell-command', 'autoshell-native', 'autoshell-expanded')]
+    names.append('public-autoshell-format-only')
+    for name in sorted(names):
+        path = HERE / 'results' / f'{name}.jsonl'
         rows = [json.loads(line) for line in path.read_text().splitlines()]
         meta = json.loads(path.with_suffix('.meta.json').read_text())
         if len(rows) != meta['count'] or len({r['id'] for r in rows}) != len(rows):

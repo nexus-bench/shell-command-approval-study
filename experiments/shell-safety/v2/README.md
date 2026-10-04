@@ -348,8 +348,9 @@ remove them by calling the fixtures realistic.
 
 ## Reproduce
 
-Verification completed: 11 v2 checks, 12 extension checks, and seven original-study
-checks pass. They verify data freezes, evidence hashes, label-free inputs, split
+Verification suites contain 11 v2 checks, 12 extension checks, and seven original-study
+checks. The extension public-request hash check requires pinned downloads and skips
+when those inputs are absent. The checks verify data freezes, evidence hashes, label-free inputs, split
 separation, score replay, threshold provenance and regenerated summaries. Label
 semantics were separately reviewed as documented above; passing code checks is not
 human validation. The run contains 432 main model predictions, 12 adversarial

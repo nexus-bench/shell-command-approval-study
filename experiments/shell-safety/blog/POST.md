@@ -74,6 +74,8 @@ The secguard model-only setup returned “safe” on **283 of 284** cases, inclu
 
 We ran all 72 cases through each native path. The first run lacked a required Node startup setting in the candidate shell, so we [reran those six cases per provider with a checked preload](../extension/NATIVE-FULL.md#node-startup-rerun-preflight). The chart includes the latest verified result for every case.
 
+Further inspection was disallowed to preserve the cases' missing-evidence conditions. Claude's hook also blocked every command other than the exact candidate. These constraints limit what this experiment says about ordinary agent behavior: it tests whether the supplied evidence was enough to proceed, not whether an agent could investigate and resolve the uncertainty.
+
 The command reached the tool in **26 of 26 allow cases for Codex** and **25 of 26 for Claude**. No command reached the tool in the **22 deny cases** for either provider. But commands also reached the tool in **12 of 24 ask cases** for each provider. The underlying files in many ask cases were harmless; the problem was acting without the evidence our approval rule required.
 
 These counts describe the whole path from an agent's choice through its approval step. An agent might never suggest the command, and Claude does not expose a separate positive classifier decision here. A tool return also does not always show that the command finished successfully. No protected test file changed in this run.
